@@ -1,0 +1,428 @@
+[25-Jul-2016 12:24:58 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:26:59 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:26:59 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:46:17 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:50:10 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:50:10 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:50:10 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:50:10 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:50:10 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:50:10 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:09 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:09 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:09 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:09 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:09 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:09 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:38 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:38 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:38 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:38 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:38 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:53:38 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 135
+[25-Jul-2016 12:55:05 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:55:05 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:55:05 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:55:05 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:55:05 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:55:20 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:55:20 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:55:20 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:55:20 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:55:20 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:55:20 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 139
+[25-Jul-2016 12:56:06 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 12:56:06 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 12:56:06 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 12:56:06 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 12:56:06 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 12:56:06 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(39): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 12:59:45 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:00:02 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:00:28 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:00:30 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:00:30 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:00:30 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:00:31 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:00:31 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:15:37 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:22:30 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:22:34 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:22:36 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:22:36 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:22:37 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:22:37 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:23:50 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:38:17 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/index')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:38:17 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:38:17 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:38:17 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:38:17 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:39:41 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/index')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:39:41 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:39:41 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:39:41 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:39:41 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:39:41 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:50:16 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/index')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:50:16 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:50:16 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:50:16 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:50:16 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:50:16 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:51:45 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/index')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:51:45 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:51:45 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:51:45 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:51:45 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:51:45 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:01 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/index')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:01 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:01 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:01 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:01 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:01 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:01 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/index')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:02 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/shop-hom...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:02 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/jquery.js')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:02 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/css/bootstra...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 13:57:02 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(41): Core\Router->dispatch('en/js/bootstrap...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:11:50 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:16:56 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:20:49 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:20:50 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:20:50 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:20:50 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:20:50 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:20:50 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:23:04 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:28:24 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:28:37 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items/en/index')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:28:37 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items/en/css/bo...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:28:37 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items/en/css/sh...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:28:37 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items/en/js/jqu...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:28:37 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items/en/js/boo...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:28:37 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items/en/js/boo...')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 15:28:43 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(44): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 141
+[25-Jul-2016 16:22:06 Europe/Berlin] Uncaught exception: 'Exception' with message 'Controller class App\Controllers\Items not found'
+Stack trace: #0 /home/thrax23/Desktop/www/shop/public/index.php(48): Core\Router->dispatch('items')
+#1 {main}
+Thrown in '/home/thrax23/Desktop/www/shop/Core/Router.php' on line 138
