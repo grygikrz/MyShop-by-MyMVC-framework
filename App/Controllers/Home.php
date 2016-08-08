@@ -22,6 +22,8 @@ class Home extends \Core\Controller
     public function indexAction()
     {
         View::renderTemplate('Home/index.html', [
+        'items' => Model::select('SELECT * FROM products ORDER BY RAND() Limit 5'),
+        'fotos' => Model::select('SELECT image FROM products ORDER BY RAND() Limit 3')
     	]);
     }
 }
