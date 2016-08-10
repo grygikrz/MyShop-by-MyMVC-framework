@@ -44,15 +44,16 @@ $router->add('home/en/index', ['controller' => 'Home', 'language' => 'en' ,'acti
 
 $router->add('item', ['controller' => 'Item', 'language' => 'en' ,'action' => 'index']);
 $router->add('item/en', ['controller' => 'Item', 'language' => 'en' ,'action' => 'index']);
-$router->add('item/en/{id:\d+}', ['controller' => 'Item', 'language' => 'en' ,'action' => 'index']); 
+$router->add('item/en/{id:\d+}', ['controller' => 'Item', 'language' => 'en' ,'action' => 'index']);
 
 $router->add('items', ['controller' => 'Items', 'language' => 'en' ,'action' => 'index']);
 $router->add('items/en', ['controller' => 'Items', 'language' => 'en' ,'action' => 'index']);
 $router->add('items/en/index', ['controller' => 'Items', 'language' => 'en' ,'action' => 'index']);
+$router->add('items/en/page/{id:\d+}', ['controller' => 'Items', 'language' => 'en' ,'action' => 'index']); 
 
-$router->add('subitems', ['controller' => 'Subitems', 'language' => 'en' ,'action' => 'index']);
-$router->add('subitems/en', ['controller' => 'Subitems', 'language' => 'en' ,'action' => 'index']);
-$router->add('subitems/en/{id:\d+}', ['controller' => 'Subitems', 'language' => 'en' ,'action' => 'index']);
+$router->add('category', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
+$router->add('category/en', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
+$router->add('category/en/{name}', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
 
 $router->add('about', ['controller' => 'About', 'language' => 'en' ,'action' => 'index']);
 $router->add('about/en', ['controller' => 'About', 'language' => 'en' ,'action' => 'index']);

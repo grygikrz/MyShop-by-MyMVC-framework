@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-7">
                 <a href="#">
-                    <img class="img-responsive" src="./Pictures/{{ item.image }}" alt="">
+                    <img class="img-responsive" src="{{url}}Pictures/{{ item.image }}" alt="">
                 </a>
             </div>
             <div class="col-md-5">
@@ -45,21 +45,12 @@
                     <li>
                         <a href="#">&laquo;</a>
                     </li>
-                    <li class="active">
-                        <a href="#">1</a>
+                    {% set perPage = countAll / 5 %}
+                    {% for i in 0..perPage %}
+                    <li {% if (i == currentPage.3) %} class="active" {% endif %}>
+                        <a href="{{url}}/items/en/page/{{ i }}">{{ i+1 }}</a>
                     </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
+                    {% endfor %}
                     <li>
                         <a href="#">&raquo;</a>
                     </li>

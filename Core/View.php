@@ -49,16 +49,23 @@ class View
 
             /**
             *
-            *   Add global variables eg to Base.html view.
+            *   Add global variables to Base.html view.
             *
             */
-                
-            $twig->addGlobal('categories', Model::select('SELECT * FROM categories'));
-            $twig->addGlobal('url', Config::get('URL'));
+
+
+            $cat = Model::select('SELECT * FROM categories');
+            $subcategories = Model::select('SELECT * FROM subcategories');
+            $id = htmlspecialchars(key($_GET));
+            $id = explode('/',$id);
+
+            $twig->addGlobal('currentPage', $id);
+            $twig->addGlobal('categories', $cat);
             $twig->addGlobal('url', Config::get('URL'));
             $twig->addGlobal('lang', Lang::get('simple text', 'simple text'));
+
         }
 
-        echo $twig->render($template, $args);
+            echo $twig->render($template, $args);
     }
 }

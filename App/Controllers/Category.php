@@ -11,7 +11,7 @@ use \Core\Config;
  *
  * PHP version 5.4
  */
-class Subitems extends \Core\Controller
+class Category extends \Core\Controller
 {
 
     /**
@@ -21,9 +21,9 @@ class Subitems extends \Core\Controller
      */
     public function indexAction()
     {
-		View::renderTemplate('Subitems/index.html', [
-        'subcategories' => Model::select('SELECT * FROM subcategories'),
-        'subitems' => Model::select('SELECT * FROM products p, categories c, subcategories s WHERE '),
+		View::renderTemplate('Category/index.html', [
+        
+        
         ]);
 
 		// without twig. Using extract() function and render to *.php file. Remamber to use escape html spacial char, echoing var inhtml page
