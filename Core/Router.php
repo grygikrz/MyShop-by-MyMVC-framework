@@ -7,11 +7,7 @@ class Router {
 	
 	
 	protected $routes = array();
-	
-	
 	protected $params = array();
-	
-	
 	protected $language;
 	
 	

@@ -73,4 +73,36 @@ abstract class Controller
     	// "after - do something if he is logged";
     }
 
+    public static function getID($i)
+    {
+        $id = htmlspecialchars(key($_GET));
+        $id = explode('/',$id);
+        
+        if ($i == false){
+
+                return $id;
+            }
+            
+            if(isset($i)){
+
+                if(empty($id[$i])){
+
+                    return false;
+
+                }else{
+
+                    return $id[$i];
+                }
+
+            }
+    }
+
+    public static function getSubCat($i, $from, $where)
+    {
+        $id = self::getID($i);
+        $subcat = Model::select("SELECT * FROM `$from` WHERE `$where` = '$id'");
+        return $subcat;
+    }
+
 }
+

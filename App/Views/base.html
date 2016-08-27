@@ -53,6 +53,14 @@
                     <li>
                         <a href="{{url}}contact">Contact</a>
                     </li>
+                    <li>
+                        <div><a href="{{url}}basket"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" id="sizing-addon3"><p>{{ CountBasket }}</p></span></a></div>
+                    </li>
+                    <li style="right:0px;position:absolute;">
+                        <a href="{{url}}admin/panel">
+                            <span class="glyphicon glyphicon-log-in"></span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -66,11 +74,19 @@
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">Shop Name</p>
+                <h1><a href="{{url}}">My<span class="bold">Shop</span></a></h1>
                 <div class="list-group">
                     {% for category in categories %}
-                    {% set caturl = category.name %}
-                    <a href="{{url}}category/en/{{ caturl|lower|replace({' ' : '-', 'ł' : 'l'}) }}" class="list-group-item">{{ category.name }}</a>
+                        {% set caturl = category.name|lower|replace({' ' : '-', 'ł' : 'l', 'ę' : 'e', '(' : '', ')' : ''}) %}
+                        <a href="{{url}}category/en/{{category.idcategories}}/{{ caturl }}/" class="list-group-item">{{ category.name }}</a>
+                            {% if currentPage.0 == 'category' and currentPage.2 == category.idcategories %}
+                            <ul>
+                            {% for sub in subcategories %}
+                            {% set subcaturl = sub.name|lower|replace({' ' : '-', 'ł' : 'l', 'ę' : 'e', '(' : '', ')' : ''}) %}
+                            <li><a href="{{url}}category/en/{{category.idcategories}}/{{ caturl }}/{{ sub.idsubcategories }}/{{ subcaturl }}/" class="list-group-item">{{ sub.name }}</a></li>
+                            {% endfor %}
+                            </ul>
+                            {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -109,6 +125,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{url}}js/bootstrap.min.js"></script>
+
+        <!-- Custom JavaScript -->
+    <script src="{{url}}js/customjs.js"></script>
 
 </body>
 

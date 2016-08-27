@@ -18,6 +18,9 @@ class View
      *
      * @return void
      */
+
+
+
     public static function render($view, $args = [])
     {
         extract($args, EXTR_SKIP);
@@ -53,16 +56,44 @@ class View
             *
             */
 
-
             $cat = Model::select('SELECT * FROM categories');
-            $subcategories = Model::select('SELECT * FROM subcategories');
-            $id = htmlspecialchars(key($_GET));
-            $id = explode('/',$id);
 
-            $twig->addGlobal('currentPage', $id);
+
+            if(Controller::getID(0)[0] == 'category'){
+
+            $subcat = Controller::getSubCat(2, 'categories', 'idcategories');
+            $subcat = trim($subcat[0]['id_cat']);
+                
+            $subcategories = Model::select("SELECT * FROM subcategories WHERE subcategories_id LIKE '$subcat%'");
+            }else{
+                
+                $subcategories = false;
+
+            }
+
+
+            $twig->addGlobal('CountBasket', Basket::countBasket());
+            $twig->addGlobal('currentPage', Controller::getID(false));
             $twig->addGlobal('categories', $cat);
+            $twig->addGlobal('subcategories', $subcategories);
             $twig->addGlobal('url', Config::get('URL'));
             $twig->addGlobal('lang', Lang::get('simple text', 'simple text'));
+
+            /**
+            *
+            *   Add statistics.
+            *
+            */
+
+
+            $info['user_browser'] = (!empty($_SERVER['HTTP_USER_AGENT'])) ? $_SERVER['HTTP_USER_AGENT'] : null;
+            $ip = (!empty($_SERVER['REMOTE_ADDR'])) ? $_SERVER['REMOTE_ADDR'] : null;
+            if($ip == '::1') {$ip = '127.0.0.1';}
+            $info['user_ip'] = (!empty($ip)) ? $ip : "No ip";
+            $info['from_page'] = (!empty($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : null;
+            $info['visit_page'] = (!empty($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : null;
+            $info['language'] = (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : null;
+            Model::insert('statistics', $info);
 
         }
 

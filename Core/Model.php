@@ -50,7 +50,7 @@ abstract class Model
 		
 		
 		
-			public function insert($table, $data)
+			public static function insert($table, $data)
 			    {
 			        ksort($data);
 			        
@@ -69,7 +69,7 @@ abstract class Model
 
 
 
-			public function update($table, $data, $where)
+			public static function update($table, $data, $where)
 				{
 				    ksort($data);
 				        
@@ -90,7 +90,7 @@ abstract class Model
 				
 				
 				
-			public function delete($table, $where, $limit = 1)
+			public static function delete($table, $where, $limit = 1)
 			    {
 			        return self::getDB()->exec("DELETE FROM $table WHERE $where LIMIT $limit");
 			    }

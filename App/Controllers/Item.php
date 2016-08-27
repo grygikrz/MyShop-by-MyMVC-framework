@@ -6,6 +6,7 @@ use \Core\View;
 use \Core\Lang;
 use \Core\Model;
 use \Core\Config;
+use \Core\Basket as B;
 /**
  * Home controller
  *
@@ -21,12 +22,19 @@ class Item extends \Core\Controller
      */
     public function indexAction()
     {
-        $id = htmlspecialchars(key($_GET));
-        $id = explode('/',$id);
-        $item = Model::select("SELECT * FROM products WHERE idproduct = $id[2]");
+
+        $id = self::getId(2);
+        $item = Model::select("SELECT * FROM products WHERE idproduct = $id");
         $group = $item[0]['group'];
 
-		View::renderTemplate('Item/index.html', [
+        if(isset($_POST['add'])){
+
+            B::addBasket($item);
+
+        }
+
+		
+        View::renderTemplate('Item/index.html', [
             'item' => $item,
             'related' => Model::select("SELECT * FROM products WHERE `group` = '$group' LIMIT 4")
         ]);

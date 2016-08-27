@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * Session start
+ */
+session_start();
+
+
+/**
  * Composer with Twig and PSR-4 (class autoloader).
  * For web template used "Mobile-first Responsive" from http://www.initializr.com
  */
@@ -53,7 +59,10 @@ $router->add('items/en/page/{id:\d+}', ['controller' => 'Items', 'language' => '
 
 $router->add('category', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
 $router->add('category/en', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
-$router->add('category/en/{name}', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
+$router->add('category/en/{id:\d+}/{name}', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
+$router->add('category/en/{id:\d+}/{name}/page/{pageid:\d+}', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
+$router->add('category/en/{id:\d+}/{name}/{subid:\d+}/{subname}', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
+$router->add('category/en/{id:\d+}/{name}/{subid:\d+}/{subname}/page/{subpageid:\d+}', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
 
 $router->add('about', ['controller' => 'About', 'language' => 'en' ,'action' => 'index']);
 $router->add('about/en', ['controller' => 'About', 'language' => 'en' ,'action' => 'index']);
@@ -62,5 +71,13 @@ $router->add('about/en/index', ['controller' => 'About', 'language' => 'en' ,'ac
 $router->add('contact', ['controller' => 'Contact', 'language' => 'en' ,'action' => 'index']);
 $router->add('contact/en', ['controller' => 'Contact', 'language' => 'en' ,'action' => 'index']);
 $router->add('contact/en/index', ['controller' => 'Contact', 'language' => 'en' ,'action' => 'index']);
+
+$router->add('basket', ['controller' => 'Basket', 'language' => 'en' ,'action' => 'index']);
+$router->add('basket/en', ['controller' => 'Basket', 'language' => 'en' ,'action' => 'index']);
+$router->add('basket/en/index', ['controller' => 'Basket', 'language' => 'en' ,'action' => 'index']);
+$router->add('basket/delete/{id:\d+}', ['controller' => 'Basket', 'language' => 'en' ,'action' => 'index']);
+
+$router->add('admin', ['controller' => 'Admin', 'language' => 'en' ,'action' => 'index']);
+$router->add('admin/panel', ['controller' => 'Admin', 'language' => 'en' ,'action' => 'index']); 
 
 $router->dispatch($_SERVER['QUERY_STRING']);

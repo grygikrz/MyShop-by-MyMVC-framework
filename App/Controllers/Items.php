@@ -21,15 +21,10 @@ class Items extends \Core\Controller
      */
     public function indexAction()
     {
-        
-        
-        $id = htmlspecialchars(key($_GET));
-        $id = explode('/',$id);
-        $id[3] =(!isset($id[3]) ? 0 : $id[3]);
+        $id = self::getId(3);
+        $id = (!$id) ? 0 : $id * 10;
 
-
-        $items = Model::select("SELECT * FROM products LIMIT $id[3], 10");
-
+        $items = Model::select("SELECT * FROM products LIMIT $id, 10");
         $countAll = Model::select("SELECT count(*) as count FROM products");
         //$perPage = $countAll[0]['count'] / 5;
 
