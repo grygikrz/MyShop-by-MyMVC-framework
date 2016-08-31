@@ -78,6 +78,7 @@ $router->add('basket/en/index', ['controller' => 'Basket', 'language' => 'en' ,'
 $router->add('basket/delete/{id:\d+}', ['controller' => 'Basket', 'language' => 'en' ,'action' => 'index']);
 
 $router->add('admin', ['controller' => 'Admin', 'language' => 'en' ,'action' => 'index']);
-$router->add('admin/panel', ['controller' => 'Admin', 'language' => 'en' ,'action' => 'index']); 
+$router->add('admin/panel', ['controller' => 'Admin', 'language' => 'en' ,'action' => 'index']);
+$router->add('admin/users', ['controller' => 'AdminUsers', 'language' => 'en' ,'action' => 'index']); 
 
 $router->dispatch($_SERVER['QUERY_STRING']);

@@ -14,31 +14,31 @@
 
 
   <!-- Stylesheets -->
-  <link href="{{url}}Admin/style/bootstrap.css" rel="stylesheet">
+  <link href="{{url}}admin/style/bootstrap.css" rel="stylesheet">
   <!-- Font awesome icon -->
-  <link rel="stylesheet" href="{{url}}Admin/style/font-awesome.css"> 
+  <link rel="stylesheet" href="{{url}}admin/style/font-awesome.css"> 
   <!-- jQuery UI -->
-  <link rel="stylesheet" href="{{url}}Admin/style/jquery-ui.css"> 
+  <link rel="stylesheet" href="{{url}}admin/style/jquery-ui.css"> 
   <!-- Calendar -->
-  <link rel="stylesheet" href="{{url}}Admin/style/fullcalendar.css">
+  <link rel="stylesheet" href="{{url}}admin/style/fullcalendar.css">
   <!-- prettyPhoto -->
-  <link rel="stylesheet" href="{{url}}Admin/style/prettyPhoto.css">  
+  <link rel="stylesheet" href="{{url}}admin/style/prettyPhoto.css">  
   <!-- Star rating -->
-  <link rel="stylesheet" href="{{url}}Admin/style/rateit.css">
+  <link rel="stylesheet" href="{{url}}admin/style/rateit.css">
   <!-- Date picker -->
-  <link rel="stylesheet" href="{{url}}Admin/style/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="{{url}}admin/style/bootstrap-datetimepicker.min.css">
   <!-- CLEditor -->
-  <link rel="stylesheet" href="{{url}}Admin/style/jquery.cleditor.css"> 
+  <link rel="stylesheet" href="{{url}}admin/style/jquery.cleditor.css"> 
   <!-- Uniform -->
-  <link rel="stylesheet" href="{{url}}Admin/style/uniform.default.css"> 
+  <link rel="stylesheet" href="{{url}}admin/style/uniform.default.css"> 
   <!-- Bootstrap toggle -->
-  <link rel="stylesheet" href="{{url}}Admin/style/bootstrap-switch.css">
+  <link rel="stylesheet" href="{{url}}admin/style/bootstrap-switch.css">
   <!-- Main stylesheet -->
-  <link href="{{url}}Admin/style/style.css" rel="stylesheet">
+  <link href="{{url}}admin/style/style.css" rel="stylesheet">
   <!-- Widgets stylesheet -->
-  <link href="{{url}}Admin/style/widgets.css" rel="stylesheet">
+  <link href="{{url}}admin/style/widgets.css" rel="stylesheet">
   <!-- Custom -->
-  <link rel="stylesheet" href="{{url}}Admin/style/custom.css">
+  <link rel="stylesheet" href="{{url}}admin/style/custom.css">
   
   <!-- HTML5 Support for IE -->
   <!--[if lt IE 9]>
@@ -46,7 +46,7 @@
   <![endif]-->
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="{{url}}Admin/img/favicon/favicon.png">
+  <link rel="shortcut icon" href="{{url}}admin/img/favicon/favicon.png">
 </head>
 
 <body>
@@ -252,8 +252,8 @@
 
             <!-- Members button with number of latest members count -->
             <li class="dropdown dropdown-big">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                <i class="icon-user"></i> Users <span   class="label label-success">6</span> 
+              <a class="dropdown-toggle" href="{{url}}admin/users" data-toggle="dropdown">
+                <i class="icon-user"></i>New Users <span   class="label label-success">6</span> 
               </a>
 
                 <ul class="dropdown-menu">
@@ -356,7 +356,7 @@
         <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
         <ul id="nav">
           <!-- Main menu with font awesome icon -->
-          <li><a href="index.html" class="open"><i class="icon-home"></i> Dashboard</a>
+          <li><a href="{{url}}admin/panel" class="open"><i class="icon-home"></i> Dashboard</a>
             <!-- Sub menu markup 
             <ul>
               <li><a href="#">Submenu #1</a></li>
@@ -364,6 +364,7 @@
               <li><a href="#">Submenu #3</a></li>
             </ul>-->
           </li>
+          <li><a href="{{url}}admin/users"><i class="icon-chevron-right"></i> Users</a></li>
           <li class="has_sub"><a href="#"><i class="icon-list-alt"></i> Widgets  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
             <ul>
               <li><a href="widgets1.html">Widgets #1</a></li>
@@ -371,25 +372,9 @@
               <li><a href="widgets3.html">Widgets #3</a></li>
             </ul>
           </li>  
-          <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> Pages #1  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+          <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> Pages <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
             <ul>
-              <li><a href="post.html">Post</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="register.html">Register</a></li>
-              <li><a href="support.html">Support</a></li>
-              <li><a href="invoice.html">Invoice</a></li>
-              <li><a href="profile.html">Profile</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-            </ul>
-          </li> 
-          <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> Pages #2  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
-            <ul>
-              <li><a href="media.html">Media</a></li>
-              <li><a href="statement.html">Statement</a></li>
-              <li><a href="error.html">Error</a></li>
-              <li><a href="error-log.html">Error Log</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
-              <li><a href="grid.html">Grid</a></li>
+              <li><a href="post.html">About</a></li>
             </ul>
           </li>                             
           <li><a href="charts.html"><i class="icon-bar-chart"></i> Charts</a></li> 
@@ -438,36 +423,36 @@
 <span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span> 
 
 <!-- JS -->
-<script src="{{url}}Admin/js/jquery.js"></script> <!-- jQuery -->
-<script src="{{url}}Admin/js/bootstrap.js"></script> <!-- Bootstrap -->
-<script src="{{url}}Admin/js/jquery-ui-1.9.2.custom.min.js"></script> <!-- jQuery UI -->
-<script src="{{url}}Admin/js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
-<script src="{{url}}Admin/js/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
-<script src="{{url}}Admin/js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+<script src="{{url}}admin/js/jquery.js"></script> <!-- jQuery -->
+<script src="{{url}}admin/js/bootstrap.js"></script> <!-- Bootstrap -->
+<script src="{{url}}admin/js/jquery-ui-1.9.2.custom.min.js"></script> <!-- jQuery UI -->
+<script src="{{url}}aAdmin/js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+<script src="{{url}}admin/js/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
+<script src="{{url}}admin/js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
 
 <!-- jQuery Flot -->
-<script src="{{url}}Admin/js/excanvas.min.js"></script>
-<script src="{{url}}Admin/js/jquery.flot.js"></script>
-<script src="{{url}}Admin/js/jquery.flot.resize.js"></script>
-<script src="{{url}}Admin/js/jquery.flot.pie.js"></script>
-<script src="{{url}}Admin/js/jquery.flot.stack.js"></script>
+<script src="{{url}}admin/js/excanvas.min.js"></script>
+<script src="{{url}}admin/js/jquery.flot.js"></script>
+<script src="{{url}}admin/js/jquery.flot.resize.js"></script>
+<script src="{{url}}admin/js/jquery.flot.pie.js"></script>
+<script src="{{url}}admin/js/jquery.flot.stack.js"></script>
 
 <!-- jQuery Notification - Noty -->
-<script src="{{url}}Admin/js/jquery.noty.js"></script> <!-- jQuery Notify -->
-<script src="{{url}}Admin/js/themes/default.js"></script> <!-- jQuery Notify -->
-<script src="{{url}}Admin/js/layouts/bottom.js"></script> <!-- jQuery Notify -->
-<script src="{{url}}Admin/js/layouts/topRight.js"></script> <!-- jQuery Notify -->
-<script src="{{url}}Admin/js/layouts/top.js"></script> <!-- jQuery Notify -->
+<script src="{{url}}admin/js/jquery.noty.js"></script> <!-- jQuery Notify -->
+<script src="{{url}}admin/js/themes/default.js"></script> <!-- jQuery Notify -->
+<script src="{{url}}admin/js/layouts/bottom.js"></script> <!-- jQuery Notify -->
+<script src="{{url}}admin/js/layouts/topRight.js"></script> <!-- jQuery Notify -->
+<script src="{{url}}admin/js/layouts/top.js"></script> <!-- jQuery Notify -->
 <!-- jQuery Notification ends -->
 
-<script src="{{url}}Admin/js/sparklines.js"></script> <!-- Sparklines -->
-<script src="{{url}}Admin/js/jquery.cleditor.min.js"></script> <!-- CLEditor -->
-<script src="{{url}}Admin/js/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
-<script src="{{url}}Admin/js/jquery.uniform.js"></script> <!-- jQuery Uniform -->
-<script src="{{url}}Admin/js/bootstrap-switch.min.js"></script> <!-- Bootstrap Toggle -->
-<script src="{{url}}Admin/js/filter.js"></script> <!-- Filter for support page -->
-<script src="{{url}}Admin/js/custom.js"></script> <!-- Custom codes -->
-<script src="{{url}}Admin/js/charts.js"></script> <!-- Charts & Graphs -->
+<script src="{{url}}admin/js/sparklines.js"></script> <!-- Sparklines -->
+<script src="{{url}}admin/js/jquery.cleditor.min.js"></script> <!-- CLEditor -->
+<script src="{{url}}admin/js/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
+<script src="{{url}}admin/js/jquery.uniform.js"></script> <!-- jQuery Uniform -->
+<script src="{{url}}admin/js/bootstrap-switch.min.js"></script> <!-- Bootstrap Toggle -->
+<script src="{{url}}admin/js/filter.js"></script> <!-- Filter for support page -->
+<script src="{{url}}admin/js/custom.js"></script> <!-- Custom codes -->
+<script src="{{url}}admin/js/charts.js"></script> <!-- Charts & Graphs -->
 
 </body>
 </html>

@@ -1,9 +1,6 @@
 /*Sparklines */
 
-
-            jQuery(document).ready(function(){
 /* Sparkline plugin Section starts */
-var url = "{{ url }}";
 
 $("#status1").sparkline([5,6,7,9,9,5,9,6,5,6,6,7,7,6,7,8,9,5 ], {
     type: 'line',
@@ -12,7 +9,7 @@ $("#status1").sparkline([5,6,7,9,9,5,9,6,5,6,6,7,7,6,7,8,9,5 ], {
     lineColor: '#0ca5e7',
     fillColor: '#e5f3f9'});
 
-$("#status2").sparkline([ url ], {
+$("#status2").sparkline([5,6,7,9,9,5,9,6,5,6,6,7,7,6,7,8,9,5 ], {
     type: 'line',
     width: '80',
     height: '20',
@@ -88,4 +85,3 @@ $("#todayspark5").sparkline([3,6,3,9,9,5,4,6,5,6,4,9,7,9,7,4,6,8,9,5,6,7,8,6,7,2
 
 /* Sparkline plugin section ends */
 
-            });  

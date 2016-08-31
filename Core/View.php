@@ -50,6 +50,9 @@ class View
             $loader = new \Twig_Loader_Filesystem('../App/Views');
             $twig = new \Twig_Environment($loader);
 
+
+            
+
             /**
             *
             *   Add global variables to Base.html view.
@@ -79,6 +82,9 @@ class View
             $twig->addGlobal('url', Config::get('URL'));
             $twig->addGlobal('lang', Lang::get('simple text', 'simple text'));
 
+
+
+
             /**
             *
             *   Add statistics.
@@ -96,6 +102,9 @@ class View
             Model::insert('statistics', $info);
 
         }
+
+
+
 
             echo $twig->render($template, $args);
     }
