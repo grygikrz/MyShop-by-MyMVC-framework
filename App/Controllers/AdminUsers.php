@@ -45,14 +45,14 @@ class AdminUsers extends \Core\Controller
         if(isset($_POST['add'])){
 
             $id = key($_POST['remove']);
-            Model::add('users','idusers = '.$id);
+            Model::insert('users','idusers = '.$id);
             header('Location: ./users');
         }
        
         if(isset($_POST['update'])){
 
             $id = key($_POST['remove']);
-            Model::add('users','idusers = '.$id);
+            Model::update('users','idusers = '.$id);
             header('Location: ./users');
         }
 

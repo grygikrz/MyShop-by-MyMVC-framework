@@ -45,7 +45,7 @@
                     <li>
                         <a href="#">&laquo;</a>
                     </li>
-                    {% set perPage = countAll / 5 %}
+                    {% set perPage = countAll / 10 %}
                     {% for i in 0..perPage %}
                     <li {% if (i == currentPage.3) %} class="active" {% endif %}>
                         <a href="{{url}}/items/en/page/{{ i }}">{{ i+1 }}</a>

@@ -1,0 +1,53 @@
+{% extends "Admin/base.html" %}
+
+{% block title %}Item{% endblock %}
+
+{% block body %}
+
+        <!-- Page heading -->
+        <div class="page-head">
+          <h2 class="pull-left"><i class="icon-home"></i> Allegro integration</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="index.html"><i class="icon-home"></i> Home</a> 
+          <!-- Divider -->
+          <span class="divider">/</span> 
+          <a href="#" class="bread-current">Allegro integration</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        </div>
+        <!-- Page heading ends -->
+
+
+
+<div class="matter">
+        <div class="container">
+
+          <p>Login id info:</p>
+               {{loginIdinfo.userId}}
+          <br />
+
+          <p>Login:</p>
+               {{logininfo.userLogin}}
+          <br />
+
+          <p>Lista zakupionych przedmiotów:</p>
+          {% for Item in myWonItems %}
+               {{Item.wonItemsCounter}}
+          <br />
+               {{Item.wonItemsList}}
+          {% endfor %}
+          <br />
+            <!-- Page content here -->
+
+
+
+
+
+        </div>
+      </div>
+
+{% endblock %}

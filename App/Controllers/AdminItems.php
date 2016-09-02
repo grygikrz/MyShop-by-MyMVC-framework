@@ -11,7 +11,7 @@ use \Core\Config;
  *
  * PHP version 5.4
  */
-class Items extends \Core\Controller
+class AdminItems extends \Core\Controller
 {
 
     /**
@@ -22,13 +22,13 @@ class Items extends \Core\Controller
     public function indexAction()
     {
         $id = self::getId(3);
-        $id = (!$id) ? 0 : $id * 10;
+        $id = (!$id) ? 0 : $id * 20;
 
-        $items = Model::select("SELECT * FROM products WHERE status = 1 LIMIT $id, 10");
+        $items = Model::select("SELECT * FROM products LIMIT $id, 20");
         $countAll = Model::select("SELECT count(*) as count FROM products");
         //$perPage = $countAll[0]['count'] / 5;
 
-		View::renderTemplate('Items/index.html', [
+		View::renderTemplate('Admin/Items.html', [
         'items' => $items,
         'countAll' => $countAll[0]['count']
         //'perPage' => $perPage
