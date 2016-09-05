@@ -43,6 +43,17 @@
           <br />
             <!-- Page content here -->
 
+          <p>Lista wystawionych przedmiotów:</p>
+          {% for item in ItemsInfo.sellItemsList.item %}
+
+              {{ item.itemId }}
+              <br />
+              {{ item.itemTitle }}
+              <br />
+              {{ item.itemEndTimeLeft }}
+              <br />
+              {{ item.itemId }}
+          {% endfor %}
 
 
 

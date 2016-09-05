@@ -42,14 +42,14 @@ class AdminIntegrationAllegro extends \Core\Controller
                 $versionKeys[$row->countryId] = $row;
             }
          
-            $request = array(
+            $requests = array(
                 'userLogin' => WEBAPI_USER_LOGIN,
                 'userHashPassword' => WEBAPI_USER_ENCODED_PASSWORD,
                 'countryCode' => COUNTRY_CODE,
                 'webapiKey' => WEBAPI_KEY,
                 'localVersion' => $versionKeys[COUNTRY_CODE]->verKey,
             );
-            $session = $soapClient->doLoginEnc($request);
+            $session = $soapClient->doLoginEnc($requests);
          
 
             $request = array(
@@ -70,12 +70,336 @@ class AdminIntegrationAllegro extends \Core\Controller
 
                 $request = array(
                 'countryId' => COUNTRY_CODE,
-            'userId' => WEBAPI_USER_ID,
+                'userId' => WEBAPI_USER_ID,
                 'webapiKey' => WEBAPI_KEY
                 );
             
             $logininfo = $soapClient->doGetUserLogin($request);
 
+
+/*
+            $send = 
+array(
+    'sessionHandle' => $session->sessionHandlePart, 
+    'fields' => 
+            array(
+                array(
+                 'fid' => 1,   // Tytuł [Oferta testowa]
+                 'fvalueString' => 'Oferta testowa',
+                 'fvalueInt' => 0,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 2,   // Kategoria [Pozostałe > Pozostałe > Pozostałe]
+                 'fvalueString' => '',
+                 'fvalueInt' => 122607,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 4,   // Czas trwania [7]
+                 'fvalueString' => '',
+                 'fvalueInt' => 2,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 5,   // Liczba sztuk [1]
+                 'fvalueString' => '',
+                 'fvalueInt' => 1,    
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 8,   // Cena Kup Teraz! [10.00]
+                 'fvalueString' => '',
+                 'fvalueInt' => 0,    
+                 'fvalueFloat' => 10.00,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 9,   // Kraj [Polska]
+                 'fvalueString' => '',
+                 'fvalueInt' => 1,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 10,  // Województwo [wielkopolskie]
+                 'fvalueString' => '',
+                 'fvalueInt' => 15,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 11,  // Miejscowość [Poznań]
+                 'fvalueString' => 'Poznań',
+                 'fvalueInt' => 0,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 12,  // Transport [Kupujący pokrywa koszty transportu]
+                 'fvalueString' => '',
+                 'fvalueInt' => 1,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 14,  // Formy płatności [Wystawiam faktury VAT]
+                 'fvalueString' => '',
+                 'fvalueInt' => 32,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 24,  // Opis [Opis testowej oferty.]
+                 'fvalueString' => 'Opis <b>testowej</b> oferty.',
+                 'fvalueInt' => 0,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 28,  // Sztuki/Komplety/Pary [Sztuk]
+                 'fvalueString' => '',
+                 'fvalueInt' => 0,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 29,  // Format sprzedaży [Licytacja lub Kup Teraz!]
+                 'fvalueString' => '',
+                 'fvalueInt' => 0,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 32,  // Kod pocztowy
+                 'fvalueString' => '60-687',
+                 'fvalueInt' => 0,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 35,  // Darmowe opcje przesyłki [Przesyłka elektroniczna (e-mail)]
+                 'fvalueString' => '',
+                 'fvalueInt' => 2,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 38,  // Paczka pocztowa priorytetowa (pierwsza sztuka) [11.00]
+                 'fvalueString' => '',
+                 'fvalueInt' => 0,
+                 'fvalueFloat' => 11.00,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => '')),
+                array(
+                 'fid' => 22991,  // Stan
+                 'fvalueString' => '',
+                 'fvalueInt' => 1,
+                 'fvalueFloat' => 0,
+                 'fvalueImage' => 0,
+                 'fvalueDatetime' => 0,
+                 'fvalueDate' => '',
+                 'fvalueRangeInt' => array(
+                        'fvalueRangeIntMin' => 0,
+                        'fvalueRangeIntMax' => 0),
+                 'fvalueRangeFloat' => array(
+                        'fvalueRangeFloatMin' => 0,
+                        'fvalueRangeFloatMax' => 0),
+                 'fvalueRangeDate' => array(
+                        'fvalueRangeDateMin' => '',
+                        'fvalueRangeDateMax' => ''))
+
+
+                ),
+    'itemTemplateId' => 0,
+    'localId' => 123123123,
+    'itemTemplateCreate' => array(
+        'itemTemplateOption' => 1,
+        'itemTemplateName' => 'Nazwa szablonu'),
+    'variants' => array(
+            'fid' => 23604,
+            'quantities' => array(
+                'mask' => 256,
+                'quantity' => 5 )),
+    'tags' => array(
+        'tagName' => 'test'),
+);
+         
+                $sendItems = $soapClient->doNewAuctionExt($send);
+*/
+
+                $dogetmysellitems = array(
+                    'sessionId' => $session->sessionHandlePart);
+            
+            $ItemsInfo = $soapClient->doGetMySellItems($dogetmysellitems);
+
+            echo "<pre>";
+            var_dump($ItemsInfo);
+            echo "</pre>";
             } catch(Exception $e) {
                 echo $e;
             }
@@ -85,7 +409,9 @@ class AdminIntegrationAllegro extends \Core\Controller
 		View::renderTemplate('Admin/IntegrationAllegro.html', [
             'loginIdinfo' => $loginIdinfo,
             'logininfo' => $logininfo,
-            'myWonItems' => $myWonItems
+            'myWonItems' => $myWonItems,
+            'ItemsInfo' => $ItemsInfo
+
         ]);
 
 		// without twig. Using extract() function and render to *.php file. Remamber to use escape html spacial char, echoing var inhtml page
