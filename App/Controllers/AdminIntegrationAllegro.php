@@ -29,7 +29,10 @@ class AdminIntegrationAllegro extends \Core\Controller
         define('WEBAPI_KEY', 's497282e');
          
         $options['features'] = SOAP_SINGLE_ELEMENT_ARRAYS;
-        try {
+        
+        try 
+
+        {
             $soapClient = new \SoapClient('https://webapi.allegro.pl.webapisandbox.pl/service.php?wsdl', $options);
             $request = array(
                 'countryId' => COUNTRY_CODE,
@@ -40,8 +43,9 @@ class AdminIntegrationAllegro extends \Core\Controller
             $versionKeys = array();
             foreach ($result->sysCountryStatus->item as $row) {
                 $versionKeys[$row->countryId] = $row;
-            }
-         
+        }
+   
+
             $requests = array(
                 'userLogin' => WEBAPI_USER_LOGIN,
                 'userHashPassword' => WEBAPI_USER_ENCODED_PASSWORD,
@@ -50,14 +54,6 @@ class AdminIntegrationAllegro extends \Core\Controller
                 'localVersion' => $versionKeys[COUNTRY_CODE]->verKey,
             );
             $session = $soapClient->doLoginEnc($requests);
-         
-
-            $request = array(
-                'sessionId' => $session->sessionHandlePart,
-                'pageSize' => 50
-            );
-         
-                $myWonItems = $soapClient->doGetMyWonItems($request);
 
 
             $dogetuserid_request = array(
@@ -73,344 +69,191 @@ class AdminIntegrationAllegro extends \Core\Controller
                 'userId' => WEBAPI_USER_ID,
                 'webapiKey' => WEBAPI_KEY
                 );
-            
             $logininfo = $soapClient->doGetUserLogin($request);
 
 
-/*
-            $send = 
-array(
-    'sessionHandle' => $session->sessionHandlePart, 
-    'fields' => 
-            array(
-                array(
-                 'fid' => 1,   // Tytuł [Oferta testowa]
-                 'fvalueString' => 'Oferta testowa',
-                 'fvalueInt' => 0,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 2,   // Kategoria [Pozostałe > Pozostałe > Pozostałe]
-                 'fvalueString' => '',
-                 'fvalueInt' => 122607,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 4,   // Czas trwania [7]
-                 'fvalueString' => '',
-                 'fvalueInt' => 2,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 5,   // Liczba sztuk [1]
-                 'fvalueString' => '',
-                 'fvalueInt' => 1,    
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 8,   // Cena Kup Teraz! [10.00]
-                 'fvalueString' => '',
-                 'fvalueInt' => 0,    
-                 'fvalueFloat' => 10.00,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 9,   // Kraj [Polska]
-                 'fvalueString' => '',
-                 'fvalueInt' => 1,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 10,  // Województwo [wielkopolskie]
-                 'fvalueString' => '',
-                 'fvalueInt' => 15,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 11,  // Miejscowość [Poznań]
-                 'fvalueString' => 'Poznań',
-                 'fvalueInt' => 0,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 12,  // Transport [Kupujący pokrywa koszty transportu]
-                 'fvalueString' => '',
-                 'fvalueInt' => 1,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 14,  // Formy płatności [Wystawiam faktury VAT]
-                 'fvalueString' => '',
-                 'fvalueInt' => 32,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 24,  // Opis [Opis testowej oferty.]
-                 'fvalueString' => 'Opis <b>testowej</b> oferty.',
-                 'fvalueInt' => 0,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 28,  // Sztuki/Komplety/Pary [Sztuk]
-                 'fvalueString' => '',
-                 'fvalueInt' => 0,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 29,  // Format sprzedaży [Licytacja lub Kup Teraz!]
-                 'fvalueString' => '',
-                 'fvalueInt' => 0,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 32,  // Kod pocztowy
-                 'fvalueString' => '60-687',
-                 'fvalueInt' => 0,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 35,  // Darmowe opcje przesyłki [Przesyłka elektroniczna (e-mail)]
-                 'fvalueString' => '',
-                 'fvalueInt' => 2,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 38,  // Paczka pocztowa priorytetowa (pierwsza sztuka) [11.00]
-                 'fvalueString' => '',
-                 'fvalueInt' => 0,
-                 'fvalueFloat' => 11.00,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => '')),
-                array(
-                 'fid' => 22991,  // Stan
-                 'fvalueString' => '',
-                 'fvalueInt' => 1,
-                 'fvalueFloat' => 0,
-                 'fvalueImage' => 0,
-                 'fvalueDatetime' => 0,
-                 'fvalueDate' => '',
-                 'fvalueRangeInt' => array(
-                        'fvalueRangeIntMin' => 0,
-                        'fvalueRangeIntMax' => 0),
-                 'fvalueRangeFloat' => array(
-                        'fvalueRangeFloatMin' => 0,
-                        'fvalueRangeFloatMax' => 0),
-                 'fvalueRangeDate' => array(
-                        'fvalueRangeDateMin' => '',
-                        'fvalueRangeDateMax' => ''))
 
-
-                ),
-    'itemTemplateId' => 0,
-    'localId' => 123123123,
-    'itemTemplateCreate' => array(
-        'itemTemplateOption' => 1,
-        'itemTemplateName' => 'Nazwa szablonu'),
-    'variants' => array(
-            'fid' => 23604,
-            'quantities' => array(
-                'mask' => 256,
-                'quantity' => 5 )),
-    'tags' => array(
-        'tagName' => 'test'),
-);
-         
-                $sendItems = $soapClient->doNewAuctionExt($send);
-*/
-
-                $dogetmysellitems = array(
-                    'sessionId' => $session->sessionHandlePart);
-            
+            $dogetmysellitems = array(
+                'sessionId' => $session->sessionHandlePart
+                );
             $ItemsInfo = $soapClient->doGetMySellItems($dogetmysellitems);
 
-            echo "<pre>";
-            var_dump($ItemsInfo);
-            echo "</pre>";
+
+
+            $dogetitemtemplates_request = array(
+               'sessionId' => $session->sessionHandlePart
+               );
+            $templateInfo = $soapClient->doGetItemTemplates($dogetitemtemplates_request);
+
+                
+
             } catch(Exception $e) {
                 echo $e;
             }
 
 
 
+
+
+if(isset($_POST['add'])){
+
+    $_POST['add'] = true;
+    $add = $_POST['add'];
+    var_dump($_POST);
+
+}else{
+
+$add = false;
+
+}
+
+if(isset($_POST['additem'])){
+
+    $send = array(
+        'sessionHandle' => $session->sessionHandlePart, 
+        'fields' => 
+            array(
+                array(
+                 'fid' => 1,   // Tytuł [Oferta testowa]
+                 'fvalueString' => $_POST['fid'][1]),
+                array(
+                 'fid' => 2,   // Kategoria [Pozostałe > Pozostałe > Pozostałe]
+                 'fvalueString' => '',
+                 'fvalueInt' => $_POST['fid'][2]),
+                array(
+                 'fid' => 4,   // Czas trwania [7]
+                 'fvalueString' => '',
+                 'fvalueInt' => $_POST['fid'][4]),
+                array(
+                 'fid' => 5,   // Liczba sztuk [1]
+                 'fvalueString' => '',
+                 'fvalueInt' => $_POST['fid'][5]),
+                array(
+                 'fid' => 8,   // Cena Kup Teraz! [10.00]
+                 'fvalueString' => '',
+                 'fvalueInt' => 0,    
+                 'fvalueFloat' => $_POST['fid'][8]),
+                array(
+                 'fid' => 9,   // Kraj [Polska]
+                 'fvalueString' => '',
+                 'fvalueInt' => $_POST['fid'][9]),
+                array(
+                 'fid' => 10,  // Województwo [wielkopolskie]
+                 'fvalueString' => '',
+                 'fvalueInt' => $_POST['fid'][10]),
+                array(
+                 'fid' => 11,  // Miejscowość [Poznań]
+                 'fvalueString' => $_POST['fid'][11]),
+                array(
+                 'fid' => 12,  // Transport [Kupujący pokrywa koszty transportu]
+                 'fvalueString' => '',
+                 'fvalueInt' => $_POST['fid'][12]),
+                array(
+                 'fid' => 14,  // Formy płatności [Wystawiam faktury VAT]
+                 'fvalueString' => '',
+                 'fvalueInt' => $_POST['fid'][14]),
+                array(
+                 'fid' => 24,  // Opis [Opis testowej oferty.]
+                 'fvalueString' => $_POST['fid'][24]),
+                array(
+                 'fid' => 28,  // Sztuki/Komplety/Pary [Sztuk]
+                 'fvalueString' => '',
+                 'fvalueInt' => 0),
+                array(
+                 'fid' => 29,  // Format sprzedaży [Licytacja lub Kup Teraz!]
+                 'fvalueString' => '',
+                 'fvalueInt' => 0),
+                array(
+                 'fid' => 32,  // Kod pocztowy
+                 'fvalueString' => $_POST['fid'][32]),
+                array(
+                 'fid' => 35,  // Darmowe opcje przesyłki [Przesyłka elektroniczna (e-mail)]
+                 'fvalueString' => '',
+                 'fvalueInt' => $_POST['fid'][35]),
+                array(
+                 'fid' => 38,  // Paczka pocztowa priorytetowa (pierwsza sztuka) [11.00]
+                 'fvalueString' => '',
+                 'fvalueInt' => 0,
+                 'fvalueFloat' => $_POST['fid'][38]),
+                array(
+                 'fid' => 22991,  // Stan
+                 'fvalueString' => '',
+                 'fvalueInt' => $_POST['fid'][22991])
+                ),
+
+                    'itemTemplateId' => 0,
+                    'localId' => 432,
+                    'itemTemplateCreate' => array(
+                        'itemTemplateOption' => 1,
+                        'itemTemplateName' => 'Nazwa szablonu'),
+                    'variants' => array(
+                            'fid' => 23604,
+                            'quantities' => array(
+                                'mask' => 256,
+                                'quantity' => 5 )),
+                    'tags' => array(
+                        'tagName' => 'test'),
+);
+         
+                $sendItems = $soapClient->doNewAuctionExt($send);
+}
+if(isset($_POST['deletetemplate'])){
+$key = key($_POST['deletetemplate']);
+$doremoveitemtemplates_request = array(
+   'sessionId' => $session->sessionHandlePart,
+   'itemTemplateIds' => array($key)
+);
+
+
+$soapClient->doRemoveItemTemplates($doremoveitemtemplates_request);
+
+header("Refresh:0");
+}
+
+
+if(isset($_POST['addtemplate'])){
+
+    $_POST['addtemplate'] = true;
+    $addtemplate = $_POST['addtemplate'];
+
+}else{
+
+$addtemplate = false;
+
+}
+
+
+if(isset($_POST['addtem'])){
+
+             $docreateitemtemplate_request = array(
+               'sessionId' => $session->sessionHandlePart,
+               'itemTemplateName' => $_POST['templatetTitle'],
+               'itemTemplateFields' => array(
+                  array(
+                     'fid' => 1,
+                     'fvalueString' => $_POST['templatetDescription']
+                     )),
+                  array(
+                     'fid' => 2,
+                     'fvalueString' => '',
+                     'fvalueInt' => 92906
+                     ));   
+
+
+                $soapClient->doCreateItemTemplate($docreateitemtemplate_request);
+
+header("Refresh:0");
+
+}
+
+
 		View::renderTemplate('Admin/IntegrationAllegro.html', [
             'loginIdinfo' => $loginIdinfo,
             'logininfo' => $logininfo,
-            'myWonItems' => $myWonItems,
-            'ItemsInfo' => $ItemsInfo
+            'add' => $add,
+            'ItemsInfo' => $ItemsInfo,
+            'templateInfo' => $templateInfo,
+            'addtemplate' => $addtemplate
 
         ]);
 
