@@ -76,6 +76,9 @@ $router->add('basket', ['controller' => 'Basket', 'language' => 'en' ,'action' =
 $router->add('basket/en', ['controller' => 'Basket', 'language' => 'en' ,'action' => 'index']);
 $router->add('basket/en/index', ['controller' => 'Basket', 'language' => 'en' ,'action' => 'index']);
 $router->add('basket/delete/{id:\d+}', ['controller' => 'Basket', 'language' => 'en' ,'action' => 'index']);
+$router->add('basket/payments', ['controller' => 'Payments', 'language' => 'en' ,'action' => 'index']);
+$router->add('basket/summary', ['controller' => 'Summary', 'language' => 'en' ,'action' => 'index']);
+
 
 $router->add('admin', ['controller' => 'Admin', 'language' => 'en' ,'action' => 'index']);
 $router->add('admin/panel', ['controller' => 'Admin', 'language' => 'en' ,'action' => 'index']);
@@ -85,5 +88,6 @@ $router->add('admin/users', ['controller' => 'AdminUsers', 'language' => 'en' ,'
 $router->add('admin/integration/allegro', ['controller' => 'AdminIntegrationAllegro', 'language' => 'en' ,'action' => 'index']);
 $router->add('admin/integration/allegroConfiguration', ['controller' => 'AdminIntegrationAllegroDefault', 'language' => 'en' ,'action' => 'index']);
 $router->add('admin/item/{id:\d+}', ['controller' => 'AdminItem', 'language' => 'en' ,'action' => 'index']);
+$router->add('admin/integration/braintree', ['controller' => 'AdminIntegrationBraintree', 'language' => 'en' ,'action' => 'index']);
 
 $router->dispatch($_SERVER['QUERY_STRING']);

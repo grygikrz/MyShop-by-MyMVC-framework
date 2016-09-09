@@ -518,3 +518,45 @@ a:focus, a:hover {
 li.row {
     padding: 0px;
 }
+
+
+.panel-title {display: inline;font-weight: bold;}
+.checkbox.pull-right { margin: 0; }
+.pl-ziro { padding-left: 0px; }
+.form-control.error {
+    border-color: red;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+}
+label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.payment-errors {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+
+.col-lg-2.col-md-4.col-xs-6.thumb {
+    width: 174px;
+}
+
+
+.post-meta {
+    padding: 9px;
+}
+
+
+button.form-control.btn.btn-primary.submit-button {
+    float: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.list-group ul {
+    list-style: none;
+}

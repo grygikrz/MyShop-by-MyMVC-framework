@@ -76,6 +76,7 @@
             <div class="col-md-3">
                 <h1><a href="{{url}}">My<span class="bold">Shop</span></a></h1>
                 <div class="list-group">
+                <h4>Category menu:</h4>
                     {% for category in categories %}
                         {% set caturl = category.name|lower|replace({' ' : '-', 'ł' : 'l', 'ę' : 'e', '(' : '', ')' : ''}) %}
                         <a href="{{url}}category/en/{{category.idcategories}}/{{ caturl }}/" class="list-group-item">{{ category.name }}</a>
@@ -123,6 +124,7 @@
     <!-- jQuery -->
     <script src="{{url}}js/jquery.js"></script>
 
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="{{url}}js/bootstrap.min.js"></script>
 

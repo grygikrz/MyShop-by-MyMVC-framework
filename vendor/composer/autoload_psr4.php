@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Core\\' => array($baseDir . '/Core'),
+    'Braintree\\' => array($vendorDir . '/braintree/braintree_php/lib/Braintree'),
     'App\\' => array($baseDir . '/App'),
 );
