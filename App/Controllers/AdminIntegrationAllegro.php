@@ -21,77 +21,46 @@ class AdminIntegrationAllegro extends \Core\Controller
      */
     public function indexAction()
     {
-        
-        define('COUNTRY_CODE', 1);
-        define('WEBAPI_USER_LOGIN', 'neutronikpl');
-        define('WEBAPI_USER_ID', '48648772');
-        define('WEBAPI_USER_ENCODED_PASSWORD', base64_encode(hash('sha256', '497282e7f846da64', true)));
-        define('WEBAPI_KEY', 's497282e');
-         
-        $options['features'] = SOAP_SINGLE_ELEMENT_ARRAYS;
-        
-        try 
 
-        {
-            $soapClient = new \SoapClient('https://webapi.allegro.pl.webapisandbox.pl/service.php?wsdl', $options);
-            $request = array(
-                'countryId' => COUNTRY_CODE,
-                'webapiKey' => WEBAPI_KEY
-            );
-            $result = $soapClient->doQueryAllSysStatus($request);
-         
-            $versionKeys = array();
-            foreach ($result->sysCountryStatus->item as $row) {
-                $versionKeys[$row->countryId] = $row;
-        }
-   
 
-            $requests = array(
-                'userLogin' => WEBAPI_USER_LOGIN,
-                'userHashPassword' => WEBAPI_USER_ENCODED_PASSWORD,
-                'countryCode' => COUNTRY_CODE,
-                'webapiKey' => WEBAPI_KEY,
-                'localVersion' => $versionKeys[COUNTRY_CODE]->verKey,
-            );
-            $session = $soapClient->doLoginEnc($requests);
+        $configuration = Model::select('SELECT * FROM allegro WHERE id = 1');
+            
+            foreach($configuration as $con):
 
 
             $dogetuserid_request = array(
-               'countryId' => COUNTRY_CODE,
-               'userLogin' => WEBAPI_USER_LOGIN,
-               'userEmail' => '',
-               'webapiKey' => WEBAPI_KEY
-            );
-            $loginIdinfo = $soapClient->doGetUserID($dogetuserid_request);
+                       'countryId' => $con['COUNTRY_CODE'],
+                       'userLogin' => $con['WEBAPI_USER_LOGIN'],
+                       'userEmail' => '',
+                       'webapiKey' => $con['WEBAPI_KEY']
+                    );
 
-                $request = array(
-                'countryId' => COUNTRY_CODE,
-                'userId' => WEBAPI_USER_ID,
-                'webapiKey' => WEBAPI_KEY
+            $loginIdinfo = self::allegroSoap()->doGetUserID($dogetuserid_request);
+
+                        $request = array(
+                        'countryId' => $con['COUNTRY_CODE'],
+                        'userId' => $con['WEBAPI_USER_ID'],
+                        'webapiKey' => $con['WEBAPI_KEY']
                 );
-            $logininfo = $soapClient->doGetUserLogin($request);
+
+            $logininfo = self::allegroSoap()->doGetUserLogin($request);
 
 
 
             $dogetmysellitems = array(
-                'sessionId' => $session->sessionHandlePart
+                'sessionId' => self::allegroSession()->sessionHandlePart
                 );
-            $ItemsInfo = $soapClient->doGetMySellItems($dogetmysellitems);
+
+            $ItemsInfo = self::allegroSoap()->doGetMySellItems($dogetmysellitems);
 
 
 
             $dogetitemtemplates_request = array(
-               'sessionId' => $session->sessionHandlePart
+               'sessionId' => self::allegroSession()->sessionHandlePart
                );
-            $templateInfo = $soapClient->doGetItemTemplates($dogetitemtemplates_request);
+            $templateInfo = self::allegroSoap()->doGetItemTemplates($dogetitemtemplates_request);
 
-                
-
-            } catch(Exception $e) {
-                echo $e;
-            }
-
-
+            endforeach;
 
 
 
@@ -99,7 +68,6 @@ if(isset($_POST['add'])){
 
     $_POST['add'] = true;
     $add = $_POST['add'];
-    var_dump($_POST);
 
 }else{
 
@@ -109,103 +77,20 @@ $add = false;
 
 if(isset($_POST['additem'])){
 
-    $send = array(
-        'sessionHandle' => $session->sessionHandlePart, 
-        'fields' => 
-            array(
-                array(
-                 'fid' => 1,   // Tytuł [Oferta testowa]
-                 'fvalueString' => $_POST['fid'][1]),
-                array(
-                 'fid' => 2,   // Kategoria [Pozostałe > Pozostałe > Pozostałe]
-                 'fvalueString' => '',
-                 'fvalueInt' => $_POST['fid'][2]),
-                array(
-                 'fid' => 4,   // Czas trwania [7]
-                 'fvalueString' => '',
-                 'fvalueInt' => $_POST['fid'][4]),
-                array(
-                 'fid' => 5,   // Liczba sztuk [1]
-                 'fvalueString' => '',
-                 'fvalueInt' => $_POST['fid'][5]),
-                array(
-                 'fid' => 8,   // Cena Kup Teraz! [10.00]
-                 'fvalueString' => '',
-                 'fvalueInt' => 0,    
-                 'fvalueFloat' => $_POST['fid'][8]),
-                array(
-                 'fid' => 9,   // Kraj [Polska]
-                 'fvalueString' => '',
-                 'fvalueInt' => $_POST['fid'][9]),
-                array(
-                 'fid' => 10,  // Województwo [wielkopolskie]
-                 'fvalueString' => '',
-                 'fvalueInt' => $_POST['fid'][10]),
-                array(
-                 'fid' => 11,  // Miejscowość [Poznań]
-                 'fvalueString' => $_POST['fid'][11]),
-                array(
-                 'fid' => 12,  // Transport [Kupujący pokrywa koszty transportu]
-                 'fvalueString' => '',
-                 'fvalueInt' => $_POST['fid'][12]),
-                array(
-                 'fid' => 14,  // Formy płatności [Wystawiam faktury VAT]
-                 'fvalueString' => '',
-                 'fvalueInt' => $_POST['fid'][14]),
-                array(
-                 'fid' => 24,  // Opis [Opis testowej oferty.]
-                 'fvalueString' => $_POST['fid'][24]),
-                array(
-                 'fid' => 28,  // Sztuki/Komplety/Pary [Sztuk]
-                 'fvalueString' => '',
-                 'fvalueInt' => 0),
-                array(
-                 'fid' => 29,  // Format sprzedaży [Licytacja lub Kup Teraz!]
-                 'fvalueString' => '',
-                 'fvalueInt' => 0),
-                array(
-                 'fid' => 32,  // Kod pocztowy
-                 'fvalueString' => $_POST['fid'][32]),
-                array(
-                 'fid' => 35,  // Darmowe opcje przesyłki [Przesyłka elektroniczna (e-mail)]
-                 'fvalueString' => '',
-                 'fvalueInt' => $_POST['fid'][35]),
-                array(
-                 'fid' => 38,  // Paczka pocztowa priorytetowa (pierwsza sztuka) [11.00]
-                 'fvalueString' => '',
-                 'fvalueInt' => 0,
-                 'fvalueFloat' => $_POST['fid'][38]),
-                array(
-                 'fid' => 22991,  // Stan
-                 'fvalueString' => '',
-                 'fvalueInt' => $_POST['fid'][22991])
-                ),
-
-                    'itemTemplateId' => 0,
-                    'localId' => 432,
-                    'itemTemplateCreate' => array(
-                        'itemTemplateOption' => 1,
-                        'itemTemplateName' => 'Nazwa szablonu'),
-                    'variants' => array(
-                            'fid' => 23604,
-                            'quantities' => array(
-                                'mask' => 256,
-                                'quantity' => 5 )),
-                    'tags' => array(
-                        'tagName' => 'test'),
-);
-         
-                $sendItems = $soapClient->doNewAuctionExt($send);
+    self::allegroAddItem($_POST['fid'], $_POST['templateid'], $_POST['itemTemplateOption'], $_POST['itemTemplateN']);
 }
+
+
 if(isset($_POST['deletetemplate'])){
-$key = key($_POST['deletetemplate']);
-$doremoveitemtemplates_request = array(
-   'sessionId' => $session->sessionHandlePart,
-   'itemTemplateIds' => array($key)
+
+    $key = key($_POST['deletetemplate']);
+    $doremoveitemtemplates_request = array(
+       'sessionId' => self::allegroSession()->sessionHandlePart,
+       'itemTemplateIds' => array($key)
 );
 
 
-$soapClient->doRemoveItemTemplates($doremoveitemtemplates_request);
+self::allegroSoap()->doRemoveItemTemplates($doremoveitemtemplates_request);
 
 header("Refresh:0");
 }
@@ -226,7 +111,7 @@ $addtemplate = false;
 if(isset($_POST['addtem'])){
 
              $docreateitemtemplate_request = array(
-               'sessionId' => $session->sessionHandlePart,
+               'sessionId' => self::allegroSession()->sessionHandlePart,
                'itemTemplateName' => $_POST['templatetTitle'],
                'itemTemplateFields' => array(
                   array(
@@ -247,13 +132,33 @@ header("Refresh:0");
 }
 
 
+if(isset($_POST['check'])){
+
+    $_POST['check'] = true;
+    $checktemplate = $_POST['check'];
+
+            $gettemplates = array(
+               'sessionId' => self::allegroSession()->sessionHandlePart,
+               'itemTemplateIds' => array($_POST['idcheck'])
+               );
+            
+            $templateDesc = self::allegroSoap()->doGetItemTemplates($gettemplates);
+
+}else{
+
+    $checktemplate = false;
+    $templateDesc = '';
+
+}
+
 		View::renderTemplate('Admin/IntegrationAllegro.html', [
             'loginIdinfo' => $loginIdinfo,
             'logininfo' => $logininfo,
             'add' => $add,
             'ItemsInfo' => $ItemsInfo,
             'templateInfo' => $templateInfo,
-            'addtemplate' => $addtemplate
+            'addtemplate' => $addtemplate,
+            'templateDesc' => $templateDesc
 
         ]);
 

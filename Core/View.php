@@ -50,9 +50,6 @@ class View
             $loader = new \Twig_Loader_Filesystem('../App/Views');
             $twig = new \Twig_Environment($loader);
 
-
-            
-
             /**
             *
             *   Add global variables to Base.html view.

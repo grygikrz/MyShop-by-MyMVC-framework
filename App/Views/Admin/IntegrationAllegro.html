@@ -136,14 +136,14 @@
                                 <div class="form-group">
                                   <label class="col-lg-4 control-label">Liczba sztuk</label>
                                   <div class="col-lg-8">
-                                    <input type="text" name="fid[5]" value="110.00" class="form-control" placeholder="Input Box">
+                                    <input type="text" name="fid[5]" value="110" class="form-control" placeholder="Input Box">
                                   </div>
                                 </div>
 
                                 <div class="form-group">
                                   <label class="col-lg-4 control-label">Cena kup teraz:</label>
                                   <div class="col-lg-8">
-                                    <input type="text" name="fid[8]" value="1" class="form-control" placeholder="Input Box">
+                                    <input type="text" name="fid[8]" value="100.00" class="form-control" placeholder="Input Box">
                                   </div>
                                 </div>
 
@@ -193,7 +193,7 @@
                                  <div class="form-group">
                                   <label class="col-lg-4 control-label">Sztuki</label>
                                   <div class="col-lg-8">
-                                    <input type="text" name="fid[28]" value="1" class="form-control" placeholder="Input Box">
+                                    <input type="text" name="fid[28]" value="0" class="form-control" placeholder="Input Box">
                                   </div>
                                 </div>    
 
@@ -201,7 +201,7 @@
                                  <div class="form-group">
                                   <label class="col-lg-4 control-label">Format sprzedaży</label>
                                   <div class="col-lg-8">
-                                    <input type="text" name="fid[29]" value="1" class="form-control" placeholder="Input Box">
+                                    <input type="text" name="fid[29]" value="0" class="form-control" placeholder="Input Box">
                                   </div>
                                 </div>  
 
@@ -233,7 +233,35 @@
                                   <div class="col-lg-8">
                                     <input type="text" name="fid[22991]" value="1" class="form-control" placeholder="Input Box">
                                   </div>
-                                </div>  
+                                </div> 
+
+                                 <div class="form-group">
+                                  <label class="col-lg-4 control-label">Local ID</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" name="localid" value="12312" class="form-control" placeholder="Input Box">
+                                  </div>
+                                </div> 
+
+                                  <div class="form-group">
+                                  <label class="col-lg-4 control-label">Template ID</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" name="templateid" value="0" class="form-control" placeholder="Input Box"><br />  <br />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Add new template ( 0 - no, 1 -Yes </label>
+                                  <div class="col-lg-8">
+                                    <input type="text" name="itemTemplateOption" value="0" class="form-control" placeholder="Input Box">
+                                  </div>
+                                </div> 
+
+                                  <div class="form-group">
+                                  <label class="col-lg-4 control-label">Name of template</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" name="itemTemplateN" value="New template" class="form-control" placeholder="Input Box">
+                                  </div>
+                                </div> 
                         <button type="submit" name="additem" class="btn btn-primary">Add item</button>
                         </form>
                         {% endif %}
@@ -281,7 +309,9 @@
 
                     <div class="widget-foot">
                    <button type="submit" type="submit" name="addtemplate" class="btn btn-primary">Add template</button>
-</form>
+
+                   </form>
+
                       <div class="clearfix"></div> 
                {% if addtemplate == true %}
                         <form action="" method="POST"> 
@@ -301,18 +331,53 @@
                         <button type="submit" name="addtem" class="btn btn-primary">Add</button>
                         </form>
                         {% endif %}
+
+
                     </div>
 
                   </div>
 
+                  <div class="widget">
+
+                <div class="widget-head">
+                <div class="pull-left">Check template:</div>
+
+                  <div class="clearfix"></div>
+                </div>
+
+                  <div class="widget-content">
+
+                    <form action="" method="POST" class="form-inline">
+
+
+                        <div class="form-group">
+                        <input type="text" name="idcheck" class="form-control" placeholder="Add template id for check">
+                        </div>
+  
+                    
+                      <button type="submit" name="check" class="btn btn-primary">Check</button>
+
+                    </form>
+
+                    <div class="widget-foot">
+
+
+                              {% for temp in templateDesc.itemTemplates.itemTemplateList.item.0.itemTemplateFields.item %}
+                              {{ temp.fvalueString  | raw }}
+                              {% endfor %}
+
+                      <div class="clearfix"></div> 
+
+                    </div>
+
+                  </div>
                 </div>
 
               </div>
 
-
             </div>
 
-
+          </div>
 
 
         </div>

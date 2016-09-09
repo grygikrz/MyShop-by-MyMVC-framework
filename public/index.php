@@ -83,6 +83,7 @@ $router->add('admin/items', ['controller' => 'AdminItems', 'language' => 'en' ,'
 $router->add('admin/items/page/{id:\d+}', ['controller' => 'AdminItems', 'language' => 'en' ,'action' => 'index']); 
 $router->add('admin/users', ['controller' => 'AdminUsers', 'language' => 'en' ,'action' => 'index']);
 $router->add('admin/integration/allegro', ['controller' => 'AdminIntegrationAllegro', 'language' => 'en' ,'action' => 'index']);
+$router->add('admin/integration/allegroConfiguration', ['controller' => 'AdminIntegrationAllegroDefault', 'language' => 'en' ,'action' => 'index']);
 $router->add('admin/item/{id:\d+}', ['controller' => 'AdminItem', 'language' => 'en' ,'action' => 'index']);
 
 $router->dispatch($_SERVER['QUERY_STRING']);
