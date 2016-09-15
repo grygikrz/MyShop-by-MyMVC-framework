@@ -560,3 +560,8 @@ button.form-control.btn.btn-primary.submit-button {
 .list-group ul {
     list-style: none;
 }
+
+li.row.totals button {
+    float: right;
+    padding: 30px;
+}

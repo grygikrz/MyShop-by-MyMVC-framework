@@ -16,7 +16,7 @@
 
 <!-- Credit card form -->
 
-
+<form action="" method="POST">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title"><img class="pull-right" src="http://i76.imgup.net/accepted_c22e0.png">Payment Details</h3>
@@ -71,8 +71,8 @@
                     {% endfor %}
                         <span class="itemName">Total:</span>
                         <span class="price">{{ total }} zł</span>
-                        <span class="order"> <a href="./basket/send" class="text-center">PAY</a></span>
-                    
+                        <button type="submit" name="pay" class="btn btn-primary">PAY</button>
+    </form>                
                     </li>
                 </ul>
                             </div>

@@ -26,8 +26,21 @@ class Summary extends \Core\Controller
 
         $basket = B::getBasket();
         $count = B::countBasket();
+        var_dump($basket);
 
+        if(isset($_POST['pay'])){
 
+            B::addBasketPay(key($_POST['pay']));
+            header('Location: ../basket/summary');
+
+        }
+
+        if(isset($_POST['transport'])){
+
+            B::addBasketTransport(key($_POST['transport']));
+            header('Location: ../basket/summary');
+
+        }
         View::renderTemplate('Basket/summary.html', [
             'basket' => $basket,
             'count' => $count

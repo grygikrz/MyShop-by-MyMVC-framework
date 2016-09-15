@@ -77,6 +77,7 @@ $router->add('basket/en', ['controller' => 'Basket', 'language' => 'en' ,'action
 $router->add('basket/en/index', ['controller' => 'Basket', 'language' => 'en' ,'action' => 'index']);
 $router->add('basket/delete/{id:\d+}', ['controller' => 'Basket', 'language' => 'en' ,'action' => 'index']);
 $router->add('basket/payments', ['controller' => 'Payments', 'language' => 'en' ,'action' => 'index']);
+$router->add('basket/payments/status', ['controller' => 'Payments', 'language' => 'en' ,'action' => 'status']);
 $router->add('basket/summary', ['controller' => 'Summary', 'language' => 'en' ,'action' => 'index']);
 
 
