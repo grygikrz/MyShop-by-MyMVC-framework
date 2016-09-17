@@ -565,3 +565,13 @@ li.row.totals button {
     float: right;
     padding: 30px;
 }
+
+span.glyphicon.glyphicon-remove {
+    font-size: 30px;
+}
+
+span.glyphicon.glyphicon-ok {
+    font-size: 42px;
+    color: green;
+    margin-right: 18px;
+}

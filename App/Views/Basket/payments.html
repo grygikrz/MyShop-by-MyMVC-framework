@@ -13,15 +13,14 @@
             </ol>
         </div>
 
-
-<!-- Credit card form -->
-
-<form action="" method="POST">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title"><img class="pull-right" src="http://i76.imgup.net/accepted_c22e0.png">Payment Details</h3>
                 </div>
                 <div class="panel-body">
+
+
+ <!--      
                     <form method="POST" action="" role="form" id="payment-form" autocomplete="off">
                         <div class="row">
                             <div class="col-xs-12">
@@ -61,28 +60,36 @@
                                 </div>
                             </div>                        
                         </div>
-                        <div class="row" style="background-color: #f2f6f9">
-                            <div class="col-xs-12">
-                <ul style="list-style: none;">
-                    <li class="row totals">
-                    {% set total = 0 %}
-                    {% for b in basket %}
-                    {% set total = total + b.0.price %}
-                    {% endfor %}
-                        <span class="itemName">Total:</span>
-                        <span class="price">{{ total }} zł</span>
-                        <button type="submit" name="pay" class="btn btn-primary">PAY</button>
-    </form>                
-                    </li>
-                </ul>
-                            </div>
+-->
+                <form id="checkout" action="./payments/status" method="POST">
+                <section>
+                    <div class="bt-drop-in-wrapper">
+                        <div id="payment-form"></div>
+                    </div>
+                                {% set total = 0 %}
+                                {% for b in basket.item %}
+                                {% set total = total + b.price + basket.pay.price + basket.transport.price %}
+                                {% endfor %}
+                    <label style="display:none" for="amount">
+                        <span class="input-label">Amount</span>
+                        <div class="input-wrapper amount-wrapper">
+                            <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="{{total}}">
                         </div>
-                        <div class="row" style="display:none;">
-                            <div class="col-xs-12">
-                                <p class="payment-errors"></p>
-                            </div>
+                    </label>
+                </section>
+                    <div class="row" style="background-color: #f2f6f9">
+                        <div class="col-xs-12">
+                            <ul style="list-style: none;">
+                                <li class="row totals">
+                                    <span class="itemName">Total:</span>
+                                    <span class="price">{{ total }} zł</span>
+                                    <button type="submit" name="pay" class="btn btn-primary">PAY</button>
+                                </li>
+                            </ul>
                         </div>
-                    </form>
+                    </div>                
+                </form>
+                
                 </div>
             </div>
 

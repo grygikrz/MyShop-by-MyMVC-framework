@@ -59,6 +59,7 @@ class Router {
 		        // Convert variables with custom regular expressions e.g. {id:\d+}
 		        //Konwertuje zmienne W przypadku gdy wpadnie {id:\d+}
 		        $route = preg_replace('/\{([a-z]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
+		        
 				// echo $route."<--to add() function<br>";
 		        // Add start and end delimiters, and case insensitive flag
 		        $route = '/^' . $route . '$/i';

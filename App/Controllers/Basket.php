@@ -25,6 +25,8 @@ class Basket extends \Core\Controller
         $basket = B::getBasket();
         $count = B::countBasket();
 
+        var_dump($basket);
+
         if(isset($_POST['remove'])){
 
             B::unsetBasket();

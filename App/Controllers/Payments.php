@@ -20,84 +20,179 @@ class Payments extends \Core\Controller
      *
      * @return void
      */
+
+    public function __construct(){
+
+        \Braintree_Configuration::environment('sandbox');
+        \Braintree_Configuration::merchantId('75gvtcjwgjqnfwcs');
+        \Braintree_Configuration::publicKey('5sb9xmg4y3frdrw6');
+        \Braintree_Configuration::privateKey('3df58b89c842df67a73bbf027ea9da31');
+    }
+
     public function indexAction()
     {
         
 		$basket = B::getBasket();
         $count = B::countBasket();
 
-if(isset($_POST['pay'])) {
-
-\Braintree_Configuration::environment('sandbox');
-\Braintree_Configuration::merchantId('75gvtcjwgjqnfwcs');
-\Braintree_Configuration::publicKey('5sb9xmg4y3frdrw6');
-\Braintree_Configuration::privateKey('3df58b89c842df67a73bbf027ea9da31');
-
-$result = \Braintree_Transaction::sale([
-  'amount' => '10.00',
-  'paymentMethodNonce' => 'fake-valid-nonce',
-  'options' => [
-    'submitForSettlement' => True
-  ]
-]);
-var_dump($result);
-}
-
-        View::renderTemplate('Basket/payments.html', [
+        View::renderTemplate('Basket/payments.html', 
+            [
             'basket' => $basket,
             'count' => $count
-        ]);
+            ]);
 
-		// without twig. Using extract() function and render to *.php file. Remamber to use escape html spacial char, echoing var inhtml page
-		//		View::render('Posts/index.php', [
-    	// 'lang' => Lang::get('simple text', 'simple text')
     }
 
-        public function statusAction()
+
+    public function statusAction()
     {
-\Braintree_Configuration::environment('sandbox');
-\Braintree_Configuration::merchantId('75gvtcjwgjqnfwcs');
-\Braintree_Configuration::publicKey('5sb9xmg4y3frdrw6');
-\Braintree_Configuration::privateKey('3df58b89c842df67a73bbf027ea9da31');
 
-/* On production. When braintree can fire from their site to send weebhook notyfication by POST method
-if(
-    isset($_POST["bt_signature"]) &&
-    isset($_POST["bt_payload"])
-) {
-    $webhookNotification = Braintree_WebhookNotification::parse(
-        $_POST["bt_signature"], $_POST["bt_payload"]
-    );
+            $basket = B::getBasket();
+            var_dump($basket);
 
-    $message =
-        "[Webhook Received " . $webhookNotification->timestamp->format('Y-m-d H:i:s') . "] "
-        . "Kind: " . $webhookNotification->kind . " | ";
+            $amount = $_POST["amount"];
+            $nonce = $_POST["payment_method_nonce"];
 
-    echo $message;
-}
+            $result = \Braintree\Transaction::sale([
+                'amount' => $amount,
+                'paymentMethodNonce' => $nonce
+            ]);
+
+            if ($result->success || !is_null($result->transaction)) {
+                $transaction = $result->transaction;
+                // header("Location: ./status/" . $transaction->id);
+
+                //Transaction and DB stock update
+                foreach ($basket['item'] as $item){ 
+                    
+                    $data = [ 
+                    'id' => '', 
+                    'product' => $item['name'], 
+                    'user_id' => 1, 
+                    'transaction_id' => $transaction->id
+                    ];
+                    Model::insert('orders', $data);
+
+                    $update = ["product_count" => "product_count - 1"];
+                    Model::update("products", $update, "idproduct=".$item['idproduct']); 
+
+                }
+
+                $order = Model::select("SELECT id FROM orders WHERE `transaction_id` = '$transaction->id'");
+                $data2 = [
+                    'id' => '', 
+                    'order_id' => $order[0]['id'], 
+                    'user_id' => 1,
+                    'failed' => '',
+                    'transaction_id' => $transaction->id
+                ];
+                Model::insert('payments',$data2);
+            
+
+            } else {
+                $errorString = "";
+
+                foreach($result->errors->deepAll() as $error) {
+                    $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+                }
+
+                $_SESSION["errors"] = $errorString;
+                header("Location: /status");
+            }
+
+
+
+/*
+
+        if(isset($_SESSION['basket']['pay'])) {
+
+                    switch($_SESSION['basket']['pay']['name']){
+
+                    case 'Mastercard':
+                        $result = \Braintree_Transaction::sale([
+                          'amount' => $_SESSION['basket']['pay']['price'],
+                          'paymentMethodNonce' => 'fake-valid-mastercard-nonce',
+                          'options' => [
+                            'submitForSettlement' => True ]
+                        ]);
+                        var_dump($result);
+                    break;
+
+                    case 'Android Pay':
+                        $result = \Braintree_Transaction::sale([
+                          'amount' => $_SESSION['basket']['pay']['price'],
+                          'paymentMethodNonce' => 'fake-android-pay-nonce',
+                          'options' => [
+                            'submitForSettlement' => True ]
+                        ]);
+                        var_dump($result);
+                    break;
+
+                    case 'Apple Pay':
+                        $result = \Braintree_Transaction::sale([
+                          'amount' => $_SESSION['basket']['pay']['price'],
+                          'paymentMethodNonce' => 'fake-apple-pay-amex-nonce',
+                          'options' => [
+                            'submitForSettlement' => True ]
+                        ]);
+                        var_dump($result);
+                    break;
+
+                    case 'Visa':
+                        $result = \Braintree_Transaction::sale([
+                          'amount' => $_SESSION['basket']['pay']['price'],
+                          'paymentMethodNonce' => 'fake-valid-visa-nonce',
+                          'options' => [
+                            'submitForSettlement' => True ]
+                        ]);
+                        var_dump($result);
+                    break;
+
+                    case 'Paypal':
+                        $result = \Braintree_Transaction::sale([
+                          'amount' => $_SESSION['basket']['pay']['price'],
+                          'paymentMethodNonce' => 'fake-paypal-one-time-nonce',
+                          'options' => [
+                            'submitForSettlement' => True ]
+                        ]);
+                        var_dump($result);
+                    break;
+
+                    default:
+                        $result = \Braintree_Transaction::sale([
+                          'amount' => $_SESSION['basket']['pay']['price'],
+                          'paymentMethodNonce' => 'fake-invalid-nonce',
+                          'options' => [
+                            'submitForSettlement' => True ]
+                        ]);
+                        var_dump($result);
+
+                    }
+
+                }else{
+                        $result = \Braintree_Transaction::sale([
+                          'amount' => '10.00',
+                          'paymentMethodNonce' => 'fake-invalid-nonce',
+                          'options' => [
+                            'submitForSettlement' => True ]
+                        ]);
+                        var_dump($result);
+                }
 */
 
-//For testing 
-
-$sampleNotification = \Braintree_WebhookTesting::sampleNotification(
-    \Braintree_WebhookNotification::SUBSCRIPTION_WENT_PAST_DUE,
-    $id
-);
-
-$webhookNotification = \Braintree_WebhookNotification::parse(
-    $sampleNotification['bt_signature'],
-    $sampleNotification['bt_payload']
-);
-
-echo $webhookNotification->subscription->id;
-
-
         View::renderTemplate('Basket/status.html', [
-
+                'result' => $result
         ]);
 
-        // without twig. Using extract() function and render to *.php file. Remamber to use escape html spacial char, echoing var inhtml page
-        //      View::render('Posts/index.php', [
-        // 'lang' => Lang::get('simple text', 'simple text')
     }
+
+    public function tokenAction()
+    {
+        
+        echo json_encode($clientToken = \Braintree_ClientToken::generate());
+
+    }
+
 }
+
+        

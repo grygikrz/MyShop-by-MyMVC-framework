@@ -38,11 +38,11 @@ class Basket
     public static function addBasketPay($item) 
     {
             $payments = [
-            array('name'=>'paypal','price'=>1),
-            array('name'=>'paypal2','price'=>1),
-            array('name'=>'paypal3','price'=>1),
-            array('name'=>'paypal4','price'=>1),
-            array('name'=>'paypal5','price'=>1)
+            array('name'=>'Mastercard','price'=>1.00),
+            array('name'=>'Android Pay','price'=>1.00),
+            array('name'=>'Apple Pay','price'=>1.00),
+            array('name'=>'Visa','price'=>1.00),
+            array('name'=>'Paypal','price'=>1.00)
             ];
             $_SESSION['basket']['pay'] = $payments[$item];
 
@@ -51,11 +51,11 @@ class Basket
     public static function addBasketTransport($item) 
     {
             $transport = [
-            array('name'=>'UPS','price'=>1),
-            array('name'=>'UPS2','price'=>1),
-            array('name'=>'UPS3','price'=>1),
-            array('name'=>'UPS4','price'=>1),
-            array('name'=>'UPS5','price'=>1)
+            array('name'=>'DPD','price'=>1.00),
+            array('name'=>'DHL','price'=>1.00),
+            array('name'=>'FEDEX','price'=>1.00),
+            array('name'=>'POLISH POST','price'=>1.00),
+            array('name'=>'Collection in person','price'=>1.00)
             ];
             $_SESSION['basket']['transport'] = $transport[$item];
 

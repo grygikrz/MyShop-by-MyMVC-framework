@@ -131,6 +131,31 @@
         <!-- Custom JavaScript -->
     <script src="{{url}}js/customjs.js"></script>
 
+    <script src="https://js.braintreegateway.com/js/braintree-2.28.0.min.js"></script>
+
+
+<script>
+
+$(document).ready(function () {
+    $.ajax({ 
+        type: 'GET', 
+        url: '{{url}}basket/payments/token', 
+        dataType: 'json', 
+        success: function (data) { 
+
+            var clientToken = data;
+
+
+                braintree.setup(clientToken, "dropin", {
+                  container: "payment-form"
+                });
+        }
+    });
+});
+
+</script>
+
+
 </body>
 
 </html>
