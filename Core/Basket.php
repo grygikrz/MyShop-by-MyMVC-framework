@@ -74,7 +74,7 @@ class Basket
     public static function countBasket()
     {
 
-            $basket = (empty(self::getBasket())) ? 0 : count(self::getBasket());
+            $basket = (empty(self::getBasket())) ? 0 : count($_SESSION['basket']['item']);
 
             return $basket;
     }

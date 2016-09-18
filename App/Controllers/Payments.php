@@ -48,7 +48,6 @@ class Payments extends \Core\Controller
     {
 
             $basket = B::getBasket();
-            var_dump($basket);
 
             $amount = $_POST["amount"];
             $nonce = $_POST["payment_method_nonce"];
@@ -61,33 +60,49 @@ class Payments extends \Core\Controller
             if ($result->success || !is_null($result->transaction)) {
                 $transaction = $result->transaction;
                 // header("Location: ./status/" . $transaction->id);
+                
 
                 //Transaction and DB stock update
+                    $orders = [ 
+                    'id' => '',
+                    'transaction_id' => $transaction->id,
+                    'user_id' => 1,
+                    'price' => $amount
+                    ];
+                    Model::insert('orders', $orders);
+                    
+                    $order = Model::select("SELECT id FROM orders WHERE `transaction_id` = '$transaction->id'");
+
                 foreach ($basket['item'] as $item){ 
                     
                     $data = [ 
-                    'id' => '', 
+                    'id' => '',
+                    'order_id' => $order[0]['id'],
                     'product' => $item['name'], 
+                    'product_price' => $item['price'],
                     'user_id' => 1, 
                     'transaction_id' => $transaction->id
                     ];
-                    Model::insert('orders', $data);
+                    Model::insert('product_orders', $data);
 
-                    $update = ["product_count" => "product_count - 1"];
+                    $product_count = $item['product_count'] - 1;
+                    $update = ["product_count" => $product_count];
                     Model::update("products", $update, "idproduct=".$item['idproduct']); 
 
                 }
 
-                $order = Model::select("SELECT id FROM orders WHERE `transaction_id` = '$transaction->id'");
+                
                 $data2 = [
                     'id' => '', 
                     'order_id' => $order[0]['id'], 
                     'user_id' => 1,
                     'failed' => '',
-                    'transaction_id' => $transaction->id
+                    'transaction_id' => $transaction->id,
+                    'price' => $amount
                 ];
                 Model::insert('payments',$data2);
-            
+
+                B::unsetBasket();
 
             } else {
                 $errorString = "";

@@ -22,10 +22,10 @@ class Basket extends \Core\Controller
      */
     public function indexAction()
     {
+
         $basket = B::getBasket();
         $count = B::countBasket();
 
-        var_dump($basket);
 
         if(isset($_POST['remove'])){
 
