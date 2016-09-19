@@ -26,12 +26,21 @@ class Basket
 
 
 
-    public static function addBasket($item) 
+    public static function addBasket($item)
     {
-
-            
             $i = $item[0]['idproduct'];
+
+            if(empty($_SESSION['basket']['item'][$i])){
+
             $_SESSION['basket']['item'][$i] = $item[0];
+            $_SESSION['basket']['item'][$i]['inBasketProduct'] = 1;
+
+            }else{
+
+                $_SESSION['basket']['item'][$i]['inBasketProduct'] += 1;
+
+                }
+
 
     }
 
@@ -93,7 +102,7 @@ class Basket
     public static function unsetBasketItem($id) 
     {
 
-            unset($_SESSION['basket'][$id]);
+            unset($_SESSION['basket']['item'][$id]);
 
     }
 

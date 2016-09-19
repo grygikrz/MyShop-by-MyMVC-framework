@@ -61,13 +61,17 @@ class Payments extends \Core\Controller
                 $transaction = $result->transaction;
                 // header("Location: ./status/" . $transaction->id);
                 
-
+                    $ip = (!empty($_SERVER['REMOTE_ADDR'])) ? $_SERVER['REMOTE_ADDR'] : null;
+                    if($ip == '::1') {$ip = '127.0.0.1';}
                 //Transaction and DB stock update
                     $orders = [ 
                     'id' => '',
                     'transaction_id' => $transaction->id,
                     'user_id' => 1,
-                    'price' => $amount
+                    'price' => $amount,
+                    'transport_name' => $basket['transport']['name'],
+                    'transport_price' => $basket['transport']['price'],
+                    'computer_ip' => $ip
                     ];
                     Model::insert('orders', $orders);
                     
@@ -78,10 +82,12 @@ class Payments extends \Core\Controller
                     $data = [ 
                     'id' => '',
                     'order_id' => $order[0]['id'],
-                    'product' => $item['name'], 
+                    'product' => $item['name'],
+                    'product_number' => $item['product_number'],
                     'product_price' => $item['price'],
                     'user_id' => 1, 
-                    'transaction_id' => $transaction->id
+                    'transaction_id' => $transaction->id,
+                    'product_count' => $_SESSION['basket']['item'][$i]['inBasketProduct']
                     ];
                     Model::insert('product_orders', $data);
 
@@ -98,7 +104,8 @@ class Payments extends \Core\Controller
                     'user_id' => 1,
                     'failed' => '',
                     'transaction_id' => $transaction->id,
-                    'price' => $amount
+                    'price' => $amount,
+                    'paymentMethodNonce' => $nonce
                 ];
                 Model::insert('payments',$data2);
 

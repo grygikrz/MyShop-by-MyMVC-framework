@@ -575,3 +575,26 @@ span.glyphicon.glyphicon-ok {
     color: green;
     margin-right: 18px;
 }
+
+button.glyphicon.glyphicon-pencil {
+    font-size: 30px;
+    padding: 6px;
+}
+
+
+input#inputCount {
+    width: 50px;
+    padding-top: 6px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 26px;
+    vertical-align: baseline;
+}
+
+
+span.quantity {
+    text-align: center;
+    font-weight: 500;
+    width: 79px;
+    height: 40px;
+}

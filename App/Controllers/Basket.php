@@ -26,26 +26,37 @@ class Basket extends \Core\Controller
         $basket = B::getBasket();
         $count = B::countBasket();
 
-
         if(isset($_POST['remove'])){
 
             B::unsetBasket();
             header('Location: ./basket');
         }
 
-        if(self::getID(1) == 'delete'){
+        if(isset($_POST['countProduct'])){
+            
+            $i = key($_POST['edit']);
 
-            B::unsetBasketItem(self::getID(2));
-            header('Location: ../../basket');
+            $_SESSION['basket']['item'][$i]['inBasketProduct'] = $_POST['countProduct'];
+            header('Location: ./basket');
         }
 
 		View::renderTemplate('Basket/index.html', [
             'basket' => $basket,
             'count' => $count
         ]);
-
+    }
 		// without twig. Using extract() function and render to *.php file. Remamber to use escape html spacial char, echoing var inhtml page
 		//		View::render('Posts/index.php', [
     	// 'lang' => Lang::get('simple text', 'simple text')
+
+
+    public function deleteAction()
+    {
+
+        B::unsetBasketItem(self::getID(2));
+        header('Location: ../../basket');
+
     }
+
+
 }

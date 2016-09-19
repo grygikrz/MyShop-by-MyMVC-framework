@@ -24,19 +24,19 @@
             </div>
             <form action="" method="POST">
             <button type="submit" name="remove" class="btn btn-primary">Remove all items</button>
+            </form>
             <div class="col-md-7 col-sm-12 text-left">
                 <ul>
                     <li class="row list-inline columnCaptions">
-                        <span>QTY</span>
-                        <span>ITEM</span>
+                        <span>How many</span>
+                        <span>Item name</span>
                         <span>Price</span>
                     </li>
-                    {% set i = 1 %}
                     {% set total = 0 %}
                     {% for b in basket.item %}
                     <li class="row">
                         <span id="pop{{i}}" class="popbtn pop" ><a class="arrow"></a></span>
-                        <span class="quantity">{{ i }}</span>
+                        <span class="quantity">{{ b.inBasketProduct }}</span>
                         <span class="price">{{ b.price }} zł</span>
                         <span class="itemName">{{ b.name }}</span>
                     </li>
@@ -46,8 +46,11 @@
                             Title 1
                         </div>
                         <div class="popContent">
-                                                <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="./basket/delete/{{ b.0.idproduct }}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <form action="" method="POST">
+                    <input value="{{ b.inBasketProduct }}" name="countProduct" id="inputCount" />
+                    <button type="submit" name="edit[{{ b.idproduct }}]" class="glyphicon glyphicon-pencil"></button>
+                    </form>
+                    <a href="./basket/delete/{{ b.idproduct }}"><span class="glyphicon glyphicon-remove"></span></a>
                         </div>
                     </div>
                     {% set i = i + 1 %}
@@ -61,7 +64,6 @@
                     </li>
                 </ul>
             </div>
-        </form>
         </div>
 
 
