@@ -23,8 +23,9 @@ class Basket extends \Core\Controller
     public function indexAction()
     {
 
+        
         $basket = B::getBasket();
-        $count = B::countBasket();
+        $price = B::getPriceBasket();
 
         if(isset($_POST['remove'])){
 
@@ -33,16 +34,24 @@ class Basket extends \Core\Controller
         }
 
         if(isset($_POST['countProduct'])){
-            
-            $i = key($_POST['edit']);
 
+            $productPrice = 0;
+    
+            $i = key($_POST['edit']);
             $_SESSION['basket']['item'][$i]['inBasketProduct'] = $_POST['countProduct'];
+
+            foreach($_SESSION['basket']['item'] as $item){
+            $productPrice += $item['price'] * $item['inBasketProduct'];
+            }
+
+            B::setPriceBasket($productPrice, true);
+
             header('Location: ./basket');
         }
 
 		View::renderTemplate('Basket/index.html', [
             'basket' => $basket,
-            'count' => $count
+            'price' => $price
         ]);
     }
 		// without twig. Using extract() function and render to *.php file. Remamber to use escape html spacial char, echoing var inhtml page

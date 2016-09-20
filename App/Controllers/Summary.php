@@ -25,12 +25,13 @@ class Summary extends \Core\Controller
         
 
         $basket = B::getBasket();
-        $count = B::countBasket();
+        $price = B::getPriceBasket();
 
 
         if(isset($_POST['pay'])){
 
             B::addBasketPay(key($_POST['pay']));
+            B::setPriceBasket($_SESSION['basket']['pay']['price']);
             header('Location: ../basket/summary');
 
         }
@@ -38,13 +39,14 @@ class Summary extends \Core\Controller
         if(isset($_POST['transport'])){
 
             B::addBasketTransport(key($_POST['transport']));
+            B::setPriceBasket($_SESSION['basket']['transport']['price']);
             header('Location: ../basket/summary');
 
         }
-        
+
         View::renderTemplate('Basket/summary.html', [
             'basket' => $basket,
-            'count' => $count
+            'price' => $price
         ]);
 
 

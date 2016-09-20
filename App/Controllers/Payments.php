@@ -33,12 +33,12 @@ class Payments extends \Core\Controller
     {
         
 		$basket = B::getBasket();
-        $count = B::countBasket();
+        $price = B::getPriceBasket();
 
         View::renderTemplate('Basket/payments.html', 
             [
             'basket' => $basket,
-            'count' => $count
+            'price' => $price
             ]);
 
     }
@@ -87,7 +87,7 @@ class Payments extends \Core\Controller
                     'product_price' => $item['price'],
                     'user_id' => 1, 
                     'transaction_id' => $transaction->id,
-                    'product_count' => $_SESSION['basket']['item'][$i]['inBasketProduct']
+                    'product_count' => $_SESSION['basket']['item'][$item['idproduct']]['inBasketProduct']
                     ];
                     Model::insert('product_orders', $data);
 

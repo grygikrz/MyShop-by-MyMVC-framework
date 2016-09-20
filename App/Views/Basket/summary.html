@@ -33,7 +33,7 @@
                     <div class="post-meta">
                         <small>Price</small>
                         <div class="price">10.00 zł</div>
-                        <button name="transport[1]" class='form-control btn btn-primary submit-button' type='submit'>Select</button>
+                        <button name="transport[0]" class='form-control btn btn-primary submit-button' type='submit'>Select</button>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <div class="post-meta">
                         <small>Price</small>
                         <div class="price">10.00 zł</div>
-                        <button name="transport[2]" class='form-control btn btn-primary submit-button' type='submit'>Select</button>
+                        <button name="transport[1]" class='form-control btn btn-primary submit-button' type='submit'>Select</button>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                     <div class="post-meta">
                         <small>Price</small>
                         <div class="price">10.00 zł</div>
-                        <button name="transport[3]" class='form-control btn btn-primary submit-button' type='submit'>Select</button>
+                        <button name="transport[2]" class='form-control btn btn-primary submit-button' type='submit'>Select</button>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                     <div class="post-meta">
                         <small>Price</small>
                         <div class="price">8.00 zł</div>
-                        <button name="transport[4]" class='form-control btn btn-primary submit-button' type='submit'>Select</button>
+                        <button name="transport[3]" class='form-control btn btn-primary submit-button' type='submit'>Select</button>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                         <small>Price</small>
                         <div class="price">0.00 zł</div>
 
-                <button name="transport[5]" class='form-control btn btn-primary submit-button' type='submit'>Select</button>
+                <button name="transport[4]" class='form-control btn btn-primary submit-button' type='submit'>Select</button>
 
                     </div>
                 </div>
@@ -233,36 +233,22 @@
             <form action="" method="POST">
                 <ul style="list-style:none;">
                     <li class="row list-inline columnCaptions">
-                        <span>QTY</span>
-                        <span>ITEM</span>
+                        <span style="float: left;">How many</span>
+                        <span>Item name</span>
                         <span>Price</span>
                     </li>
-                    {% set i = 1 %}
-                    {% set total = 0 %}
                     {% for b in basket.item %}
                     <li class="row">
-                        <span class="quantity">{{ i }}</span>
+                        <span class="quantity">{{ b.inBasketProduct }}</span>
                         <span class="price">{{ b.price }} zł</span>
                         <span class="itemName">{{ b.name }}</span>
                     </li>
 
-                    <div id="pop{{i}}_content" class="popSourceBlock" style="display:none;">
-                        <div class="popTitle">
-                            Title 1
-                        </div>
-                        <div class="popContent">
-                          <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="./basket/delete/{{ b.0.idproduct }}"><span class="glyphicon glyphicon-remove"></span></a>
-                        </div>
-                    </div>
-                    {% set i = i + 1 %}
-                    {% set total = total + b.price + basket.pay.price + basket.transport.price %}
                     {% endfor %}
                     {% if basket.pay %}
                     <h4 style="text-align:left;">Your payments method:</h4>
              
                     <li class="row">
-                        <span class="quantity">{{ i }}</span>
                         <span class="price">{{ basket.pay.price }} zł</span>
                         <span class="itemName">{{ basket.pay.name }}</span>
                     </li>
@@ -271,14 +257,13 @@
                     <h4 style="text-align:left;">Your transport:</h4>
                
                     <li class="row">
-                        <span class="quantity">{{ i }}</span>
                         <span class="price">{{ basket.transport.price }} zł</span>
                         <span class="itemName">{{ basket.transport.name }}</span>
                     </li>
                     {% endif %}
                     <li class="row totals">
                         <span class="itemName">Total:</span>
-                        <span class="price">{{ total }} zł</span>
+                        <span class="price">{{ price }} zł</span>
                         <span class="order"> <a href="./payments" class="text-center">PAY</a></span>
                     </li>
                 </ul>

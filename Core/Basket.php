@@ -60,11 +60,11 @@ class Basket
     public static function addBasketTransport($item) 
     {
             $transport = [
-            array('name'=>'DPD','price'=>1.00),
-            array('name'=>'DHL','price'=>1.00),
-            array('name'=>'FEDEX','price'=>1.00),
-            array('name'=>'POLISH POST','price'=>1.00),
-            array('name'=>'Collection in person','price'=>1.00)
+            array('name'=>'DPD','price'=>10.00),
+            array('name'=>'DHL','price'=>10.00),
+            array('name'=>'FEDEX','price'=>10.00),
+            array('name'=>'POLISH POST','price'=>8.00),
+            array('name'=>'Collection in person','price'=>0.00)
             ];
             $_SESSION['basket']['transport'] = $transport[$item];
 
@@ -73,12 +73,39 @@ class Basket
     public static function getBasket() 
     {
 
-            
                 return $_SESSION['basket'];
-
     }
 
 
+
+    public static function getPriceBasket()
+    {
+
+            $price = (empty($_SESSION['basket']['all_price'])) ?  0 : $_SESSION['basket']['all_price'] ;
+
+            return $price;
+    }
+
+    public static function setPriceBasket($price, $count = false)
+    {
+
+           if(isset($_SESSION['basket']['all_price']) && $count == false)
+
+            { 
+                $_SESSION['basket']['all_price'] += $price;
+
+            }elseif($count  == true){  
+
+                $_SESSION['basket']['all_price'] = $price;
+
+            }else{  
+
+                $_SESSION['basket']['all_price'] = 0;
+                $_SESSION['basket']['all_price'] += $price;
+
+            }
+
+    }
 
     public static function countBasket()
     {
@@ -88,13 +115,12 @@ class Basket
             return $basket;
     }
 
-
-
     public static function unsetBasket() 
     {
 
             unset($_SESSION['basket']);
             $_SESSION['basket'] = array();
+
     }
 
 

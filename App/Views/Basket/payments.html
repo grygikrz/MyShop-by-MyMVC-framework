@@ -66,14 +66,10 @@
                     <div class="bt-drop-in-wrapper">
                         <div id="payment-form"></div>
                     </div>
-                                {% set total = 0 %}
-                                {% for b in basket.item %}
-                                {% set total = total + b.price + basket.pay.price + basket.transport.price %}
-                                {% endfor %}
                     <label style="display:none" for="amount">
                         <span class="input-label">Amount</span>
                         <div class="input-wrapper amount-wrapper">
-                            <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="{{total}}">
+                            <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="{{ price }}">
                         </div>
                     </label>
                 </section>
@@ -82,7 +78,7 @@
                             <ul style="list-style: none;">
                                 <li class="row totals">
                                     <span class="itemName">Total:</span>
-                                    <span class="price">{{ total }} zł</span>
+                                    <span class="price">{{ price }} zł</span>
                                     <button type="submit" name="pay" class="btn btn-primary">PAY</button>
                                 </li>
                             </ul>

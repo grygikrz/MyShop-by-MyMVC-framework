@@ -30,7 +30,7 @@ class Item extends \Core\Controller
         if(isset($_POST['add'])){
 
             B::addBasket($item);
-
+            B::setPriceBasket($_SESSION['basket']['item'] [$item[0]['idproduct']] ['price']);
         }
 
 		
