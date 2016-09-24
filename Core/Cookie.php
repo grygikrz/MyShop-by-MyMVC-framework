@@ -3,11 +3,11 @@
 namespace Core;
 
 /**
- * Basket class
+ * Cookie class
  *
  * 
  */
-class Basket
+class Cookie
 {
 
 

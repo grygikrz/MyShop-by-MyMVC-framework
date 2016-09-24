@@ -63,6 +63,14 @@ class Basket extends \Core\Controller
     {
 
         B::unsetBasketItem(self::getID(2));
+        $productPrice = 0;
+
+        foreach($_SESSION['basket']['item'] as $item){
+            $productPrice += $item['price'] * $item['inBasketProduct'];
+            }
+
+        B::setPriceBasket($productPrice, true);
+
         header('Location: ../../basket');
 
     }

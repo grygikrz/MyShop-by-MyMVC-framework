@@ -64,6 +64,10 @@ $router->add('category/en/{id:\d+}/{name}/page/{pageid:\d+}', ['controller' => '
 $router->add('category/en/{id:\d+}/{name}/{subid:\d+}/{subname}', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
 $router->add('category/en/{id:\d+}/{name}/{subid:\d+}/{subname}/page/{subpageid:\d+}', ['controller' => 'Category', 'language' => 'en' ,'action' => 'index']);
 
+$router->add('usermenu', ['controller' => 'UserMenu', 'language' => 'en' ,'action' => 'index']);
+$router->add('usermenu/en', ['controller' => 'UserMenu', 'language' => 'en' ,'action' => 'index']);
+$router->add('usermenu/en/index', ['controller' => 'UserMenu', 'language' => 'en' ,'action' => 'index']);
+
 $router->add('about', ['controller' => 'About', 'language' => 'en' ,'action' => 'index']);
 $router->add('about/en', ['controller' => 'About', 'language' => 'en' ,'action' => 'index']);
 $router->add('about/en/index', ['controller' => 'About', 'language' => 'en' ,'action' => 'index']);
@@ -82,6 +86,7 @@ $router->add('basket/payments/status', ['controller' => 'Payments', 'language' =
 $router->add('basket/payments/status/{id:\d+}', ['controller' => 'Payments', 'language' => 'en' ,'action' => 'status']);
 $router->add('basket/payments/token', ['controller' => 'Payments', 'language' => 'en' ,'action' => 'token']);
 $router->add('basket/summary', ['controller' => 'Summary', 'language' => 'en' ,'action' => 'index']);
+
 
 
 $router->add('admin', ['controller' => 'Admin', 'language' => 'en' ,'action' => 'index']);

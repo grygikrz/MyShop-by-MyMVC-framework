@@ -27,7 +27,6 @@ body {
 }
 
 .caption {
-    height: 130px;
     overflow: hidden;
 }
 
@@ -49,7 +48,7 @@ body {
 }
 
 .thumbnail {
-    padding: 0;
+    padding: 10px;
 }
 
 .thumbnail .caption-full {
@@ -226,7 +225,6 @@ list-style: none;
 }
 
 .row{
-	box-shadow: 0 1px 0 #e1e5e8;
 	padding-bottom :0;
 	background-color: #ffffff;
 	margin-bottom: 11px;
@@ -501,6 +499,7 @@ list-style: none;
 
 span.glyphicon.glyphicon-log-in {
     font-size: 21px;
+    color: #fff;
 }
 
 span.bold {
@@ -597,4 +596,88 @@ span.quantity {
     font-weight: 500;
     width: 79px;
     height: 40px;
+}
+
+.nav-tabs {
+    margin-bottom: 15px;
+}
+.sign-with {
+    margin-top: 25px;
+    padding: 20px;
+}
+div#OR {
+    height: 30px;
+    width: 30px;
+    border: 1px solid #C2C2C2;
+    border-radius: 50%;
+    font-weight: bold;
+    line-height: 28px;
+    text-align: center;
+    font-size: 12px;
+    float: right;
+    position: absolute;
+    right: -16px;
+    top: 40%;
+    z-index: 1;
+    background: #DFDFDF;
+}
+
+.col-sm-10 .row {
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+label.col-sm-2.control-label {
+    font-weight: 500;
+}
+
+.modal-header {
+    background-color: #00427b;
+}
+
+.modal-header .close {
+    color: #FFF;
+    font-size: 30px;
+}
+
+div#Login {
+    margin-top: 40px;
+}
+
+nav .container {
+    background-color: #222;
+}
+
+.container {
+    background-color: #FFF;
+}
+
+.modal-header {
+    padding: 7px;
+}
+
+.breadcrumb > .active a {
+    color: #337ab7;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.breadcrumb li a {
+    color: #869db0;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.breadcrumb>li+li:before {
+    padding: 0px 11px;
+    font-size: 24px;
+
+}
+
+.nav-tabs>li>a {
+    cursor: pointer;
+}
+
+.container.text-center h4 {
+    font-weight: 600;
 }

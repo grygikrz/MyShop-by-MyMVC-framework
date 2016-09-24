@@ -282,11 +282,14 @@ abstract class Controller
                                 'quantity' => 5 )),
                     'tags' => array(
                         'tagName' => 'test')*/
-);
+                );
               echo "<pre>";
               var_dump($send);
                 self::allegroSoap()->doNewAuctionExt($send);
 
        }
+
+
+
 }
 

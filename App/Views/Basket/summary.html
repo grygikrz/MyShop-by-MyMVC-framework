@@ -246,6 +246,7 @@
 
                     {% endfor %}
                     {% if basket.pay %}
+                    <hr>
                     <h4 style="text-align:left;">Your payments method:</h4>
              
                     <li class="row">
@@ -254,8 +255,8 @@
                     </li>
                     {% endif %}
                     {% if basket.transport %}
+                    <hr>
                     <h4 style="text-align:left;">Your transport:</h4>
-               
                     <li class="row">
                         <span class="price">{{ basket.transport.price }} zł</span>
                         <span class="itemName">{{ basket.transport.name }}</span>

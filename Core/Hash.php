@@ -3,11 +3,11 @@
 namespace Core;
 
 /**
- * Basket class
+ * Hash class
  *
  * 
  */
-class Basket
+class Hash
 {
 
 

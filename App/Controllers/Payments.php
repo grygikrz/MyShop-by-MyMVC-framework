@@ -71,7 +71,8 @@ class Payments extends \Core\Controller
                     'price' => $amount,
                     'transport_name' => $basket['transport']['name'],
                     'transport_price' => $basket['transport']['price'],
-                    'computer_ip' => $ip
+                    'computer_ip' => $ip,
+                    'status' => 'pending'
                     ];
                     Model::insert('orders', $orders);
                     
